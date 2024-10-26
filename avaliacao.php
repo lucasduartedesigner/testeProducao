@@ -26,7 +26,7 @@ session_start();
         <label for="codcurso">Curso:</label>
             <select name="codcurso" id="codcurso" required>
                 <option value="1">Enfermagem</option>
-                <option value="2" selected>Fisioterapia</option>
+                <option value="2">Fisioterapia</option>
                 <option value="3">Medicina</option>
                 <option value="4">Terapia Ocupacional</option>
             </select>
@@ -39,7 +39,7 @@ session_start();
                 <option value="3">3º</option>
                 <option value="4">4º</option>
                 <option value="5">5º</option>
-                <option value="6" selected>6º</option>
+                <option value="6">6º</option>
                 <option value="7">7º</option>
                 <option value="8">8º</option>
                 <option value="9">9º</option>
@@ -58,7 +58,7 @@ session_start();
                 <option value="1">A</option>
                 <option value="2">B</option>
                 <option value="3">C</option>
-                <option value="4" selected>D</option>
+                <option value="4">D</option>
                 <option value="5">E</option>
                 <option value="6">F</option>
                 <option value="7">G</option>
@@ -81,7 +81,7 @@ session_start();
         <label for="status">Status:</label>
             <select name="status" id="status" required>
                 <option value="1">Agendado</option>
-                <option value="2" selected>Em Andamento</option>
+                <option value="2">Em Andamento</option>
                 <option value="3">Concluído</option>
                 <option value="4">Cancelado</option>
             </select>
