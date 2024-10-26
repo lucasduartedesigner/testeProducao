@@ -1,14 +1,16 @@
 <?php
-
 session_start();
-
 require 'conn.php'; // Inclua o arquivo de conexão com o banco de dados
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
+    $cpf = $_POST['cpf'];
+    $email = $_POST['email'];
+    $matricula = $_POST['matricula'];
 
-    if (!empty($username) && !empty($password)) {
+    // Verifica se todos os campos obrigatórios foram preenchidos
+    if (!empty($username) && !empty($password) && !empty($cpf) && !empty($email) && !empty($matricula)) {
         // Criptografa a senha com MD5 para comparação
         $passwordMd5 = md5($password);
 
@@ -30,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $error = "Usuário ou senha inválidos!";
         }
     } else {
-        $error = "Usuário ou senha vazios!";
+        $error = "Todos os campos são obrigatórios!";
     }
 }
 ?>
