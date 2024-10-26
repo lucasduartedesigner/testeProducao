@@ -21,7 +21,8 @@
                     type: 'GET',
                     dataType: 'json',
                     success: function(data) {
-                        $('#resultado').html(data);
+                        // Mostra o JSON formatado
+                        $('#resultado').html(JSON.stringify(data, null, 2));
                     },
                     error: function(jqXHR, textStatus, errorThrown) {
                         $('#resultado').text("Erro: " + textStatus + " - " + errorThrown);
