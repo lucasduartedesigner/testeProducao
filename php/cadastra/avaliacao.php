@@ -26,8 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $descricao = $_POST['descricao'];
     $status = $_POST['status'];
 
-    // var_dump($_POST);
-
     // Verifica se todos os campos obrigatórios foram preenchidos
     if (!empty($codcurso) && !empty($periodo) && !empty($semestre) && !empty($codturma) && 
         !empty($data_inicio) && !empty($data_fim) && !empty($descricao) && !empty($status)) {
