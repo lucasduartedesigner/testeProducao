@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exemplo AJAX em PHP</title>
+  
+</head>
+<body>
+    <h1>Buscar Problema</h1>
+    <input type="number" id="idProblema" placeholder="Digite o ID do Problema">
+    <button id="buscarProblema">Buscar</button>
+    <pre id="resultado"></pre>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#buscarProblema').click(function(){
+                var idProblema = $('#idProblema').val();
+                $.ajax({
+                    url: 'processar.php?id_problema=' + idProblema,
+                    type: 'GET',
+                    dataType: 'json',
+                    success: function(data) {
+                        $('#resultado').html(data);
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        $('#resultado').text("Erro: " + textStatus + " - " + errorThrown);
+                    }
+                });
+            });
+        });
+    </script>
+    
+</body>
+</html>
