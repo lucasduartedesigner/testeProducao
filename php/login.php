@@ -2,20 +2,20 @@
 
 session_start();
 
-require 'conn.php'; // conexão com o banco de dados
+require '../conn/conn.php'; // conexão com o banco de dados
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $matricula = $_POST['matricula'];
     $senha = $_POST['senha'];
 
-    if (!empty($matricula) && !empty($password)) {
+    if (!empty($matricula) && !empty($senha)) {
         // Criptografa a senha com MD5 para comparação
-        $passwordMd5 = md5($password);
+        $senhaMd5 = md5($senha);
 
         // Consulta SQL para verificar o usuário e senha
         $sql = "SELECT * FROM pessoa WHERE matricula = ? AND senha = ?";
         $stmt = $conn->prepare($sql);
-        $stmt->bind_param("ss", $matricula, $passwordMd5);
+        $stmt->bind_param("ss", $matricula, $senhaMd5);
         $stmt->execute();
         $result = $stmt->get_result();
 

@@ -21,7 +21,7 @@ session_start();
         <p style="color: red;"><?php echo $error; ?></p>
     <?php endif; ?>
 
-    <form action="/php/login.php" method="POST">
+    <form action="php/login.php" method="POST">
         <label for="matricula">Matrícula:</label>
         <input type="text" name="matricula" id="matricula" required>
         <br>
