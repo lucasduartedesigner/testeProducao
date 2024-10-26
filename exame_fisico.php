@@ -21,40 +21,23 @@ session_start();
         <p style="color: red;"><?php echo $error; ?></p>
     <?php endif; ?>
 
-    <form action="php/cadastra/avaliacao.php" method="POST">
+    <form action="php/cadastra/exame_fisico.php" method="POST">
+
+        <label for="descricao">Descrição:</label>
+            <input type="text" name="descricao" id="descricao" required>
+        <br>
         
-        <label for="codcurso">Curso:</label>
-            <select name="codcurso" id="codcurso" required>
-                <option value="1">Enfermagem</option>
-                <option value="2">Fisioterapia</option>
-                <option value="3">Medicina</option>
-                <option value="4">Terapia Ocupacional</option>
-            </select>
+        <label for="gabarito">Gabarito</label>
+        <input type="text" name="gabarito" id="gabarito" required>
         <br>
 
-        <label for="periodo">Período:</label>
-            <select name="periodo" id="periodo" required>
-                <option value="1">1º</option>
-                <option value="2">2º</option>
-                <option value="3">3º</option>
-                <option value="4">4º</option>
-                <option value="5">5º</option>
-                <option value="6">6º</option>
-                <option value="7">7º</option>
-                <option value="8">8º</option>
-                <option value="9">9º</option>
-                <option value="10">10º</option>
-                <option value="11">11º</option>
-                <option value="12">12º</option>
-            </select>
+        <label for="top_position">Posição 1</label>
+        <input type="text" name="top_position" id="top_position" required>
         <br>
 
-        <label for="semestre">Semestre Letivo:</label>
-        <input type="text" name="semestre" id="semestre" required>
+        <label for="left_position">Posição 2</label>
+        <input type="text" name="left_position" id="left_position" required>
         <br>
-
-
-
 
         <button type="submit">Salvar</button>
 
