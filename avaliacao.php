@@ -50,7 +50,7 @@ session_start();
         <br>
 
         <label for="semestre">Semestre Letivo:</label>
-        <input type="text" name="semestre" id="semestre" value="2024/2"required>
+        <input type="text" name="semestre" id="semestre" required>
         <br>
 
         <label for="subturma">Código Subturma:</label>
@@ -67,15 +67,15 @@ session_start();
         <br>
 
         <label for="data_inicio">Data Início:</label>
-        <input type="text" name="data_inicio" id="data_inicio" value="26/10/2024 10:00" required>
+        <input type="text" name="data_inicio" id="data_inicio" required>
         <br>
 
         <label for="data_fim">Data Fim:</label>
-        <input type="text" name="data_fim" id="data_fim" value="27/10/2024 10:00"required>
+        <input type="text" name="data_fim" id="data_fim" required>
         <br>
 
         <label for="descricao">Descrição:</label>
-        <input type="text" name="descricao" id="descricao" value="DESCRIÇÃO"required>
+        <input type="text" name="descricao" id="descricao" required>
         <br>
 
         <label for="status">Status:</label>
