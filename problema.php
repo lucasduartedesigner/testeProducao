@@ -55,7 +55,7 @@ session_start();
         <input type="text" name="arquivo" id="arquivo" required>
         <br>
 
-        <label for="diagnostico">Diagnostico:</label>
+        <label for="diagnostico">Diagnóstico:</label>
         <input type="text" name="diagnostico" id="diagnostico" required>
         <br>
 

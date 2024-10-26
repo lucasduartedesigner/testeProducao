@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         if ($result->num_rows > 0) {
             // Usuário já existente
-            $_SESSION['msg'] = "Problema escolhido já existente";
+            $_SESSION['msg'] = "Problema escolhido já existente.";
             header("Location: ../../problema.php"); // Redireciona para o problema
             exit();        
         } else {
@@ -42,14 +42,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 header("Location: ../../problema.php"); // Redireciona para o problema
                 exit();  
             } else {
-                $_SESSION['msg'] = "Erro ao registrar usuário: " . $stmt->error;
+                $_SESSION['msg'] = "Erro ao registrar situação problema. " . $stmt->error;
                 header("Location: ../../problema.php"); // Redireciona para o problema
                 exit(); 
             }
         }
     } else {
         $_SESSION['msg'] = "Todos os campos são obrigatórios!";
-        header("Location: ../../cadastro.php"); // Redireciona para o cadastro
+        header("Location: ../../problema.php"); // Redireciona para o problema
         exit();
     }
 }
