@@ -3,7 +3,7 @@
 <html class="loading" lang="pt-br">
 <?php 
 
-	$title = "Estudante";
+	$title = "Professor";
 
 	include('template/head.php');
 
@@ -46,12 +46,12 @@
                     $curso = ($codcurso == 13) ? 'Medicina' : '-';
 				}
 
-				include_once('edicao/estudante.php');
+				include_once('edicao/professor.php');
 			}
 			else 
 			{
-				include_once('lista/estudante.php');
-				include_once('modal/estudante.php'); 
+				include_once('lista/professor.php');
+				include_once('modal/professor.php'); 
 			}
 		?>
     </div>
