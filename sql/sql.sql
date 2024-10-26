@@ -292,7 +292,7 @@ CREATE TABLE `exame_laboratorial_problema` (
   `codturma` varchar(20) DEFAULT NULL,
   `subturma` varchar(20) DEFAULT NULL,
   `cod_status` int(11) DEFAULT NULL,
-  `id_exame_laboratorial` int(11) NOT NULL -- se existir retorna resultado do exame cadastrado pelo professor
+  `id_exame_laboratorial` int(11) NOT NULL, -- se existir retorna resultado do exame cadastrado pelo professor
   `pergunta` varchar(1000) DEFAULT NULL,
   `resposta` varchar(1000) DEFAULT NULL, -- se não existir id_exame_laboratorial retorna resposta aleatoria padrão
   `user_created` int(11) DEFAULT NULL,
@@ -304,10 +304,11 @@ CREATE TABLE `exame_laboratorial_problema` (
 
 -- Tabela para criação dos prompts que vão ser utilizadas na IA
 CREATE TABLE `prompts` (
-        `id` INT PRIMARY KEY AUTO_INCREMENT,
-        `prompt_type` VARCHAR(50) NOT NULL,
-        `description` VARCHAR(255),
-        `prompt_text` TEXT NOT NULL,
-        `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-        `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `id_prompts` INT PRIMARY KEY AUTO_INCREMENT,
+  `prompt_type` VARCHAR(50) NOT NULL,
+  `description` VARCHAR(255),
+  `prompt_text` TEXT NOT NULL,
+  `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_prompts`)
 );
