@@ -21,6 +21,17 @@ CREATE TABLE IF NOT EXISTS `config` (
   PRIMARY KEY (`id_config`)
 );
 
+CREATE TABLE IF NOT EXISTS `nivel_acesso` (
+  `id_nivel_acesso` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `user_created` int(11) DEFAULT NULL,
+  `dt_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_updated` int(11) DEFAULT NULL,
+  `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_nivel_acesso`)
+)
+
 CREATE TABLE IF NOT EXISTS `pessoa` (
   `id_pessoa` int(11) NOT NULL AUTO_INCREMENT,
   `id_nivel_acesso` int(11) NOT NULL,
@@ -56,3 +67,34 @@ CREATE TABLE IF NOT EXISTS `estudante_turma` (
   `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_estudante_turma`)
 );
+
+CREATE TABLE IF NOT EXISTS `menu` (
+  `id_menu` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `descricao` varchar(5000) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ordem` int(11) DEFAULT NULL,
+  `link` varchar(150) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `icone` varchar(100) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int(11) DEFAULT NULL,
+  `user_created` int(11) DEFAULT NULL,
+  `dt_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_updated` int(11) DEFAULT NULL,
+  `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_menu`)
+)
+
+CREATE TABLE IF NOT EXISTS `menu_acesso` (
+  `id_menu_acesso` int(11) NOT NULL AUTO_INCREMENT,
+  `id_nivel_acesso` int(11) NOT NULL,
+  `id_menu` int(11) NOT NULL,
+  `leitura` int(11) DEFAULT NULL,
+  `editar` int(11) DEFAULT NULL,
+  `deletar` int(11) DEFAULT NULL,
+  `user_created` int(11) DEFAULT NULL,
+  `dt_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_updated` int(11) DEFAULT NULL,
+  `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_menu_acesso`),
+  KEY `fk_menu_acesso_nivel_acesso` (`id_nivel_acesso`),
+  KEY `fk_menu_acesso_menu` (`id_menu`)
+)
