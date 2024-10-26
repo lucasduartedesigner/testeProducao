@@ -31,7 +31,7 @@ session_start();
         <input type="text" name="disparador" id="disparador" required>
         <br>
 
-        <label for="identificacao">Identificacao:</label>
+        <label for="identificacao">Identificação:</label>
         <input type="text" name="identificacao" id="identificacao" required>
         <br>
 
