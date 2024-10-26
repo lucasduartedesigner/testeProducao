@@ -3,10 +3,6 @@
 	//Inicia sessão
     session_start();
 
-	ini_set('display_errors', 1);
-	ini_set('display_startup_errors', 1);
-	error_reporting(E_ALL);
-
 	if(empty($raiz)) { $raiz = ""; }
 
 	//Incluindo a conexão com banco de dados   
@@ -23,7 +19,7 @@
 	$return = 0;
 
 	//Verifica se fez login
-	if(empty($_SESSION['id_professor']))
+	if(empty($_SESSION['id_pessoa']))
 	{
 		if(empty($_COOKIE['login']))
 		{
@@ -45,7 +41,7 @@
 	}
     else
     {
-	   unset($_SESSION['loginErro']);
+	   unset($_SESSION['msg']);
     }
 
 	//Configura modo escuro
@@ -65,7 +61,6 @@
 	}
 
 	//Configura menu icone
-    //$menu = (!empty($_SESSION['menu']) && $_SESSION['menu'] == 1) ? " menu-collapsed" : "";
     $menu =  " menu-collapsed";
 
 	$id_setor = (!empty($_GET['setor'])) ? $_GET['setor'] : 5;
