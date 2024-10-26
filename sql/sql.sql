@@ -109,12 +109,12 @@ CREATE TABLE IF NOT EXISTS `menu_acesso` (
 CREATE TABLE IF NOT EXISTS `problema` (
  `id_problema` int(11) NOT NULL AUTO_INCREMENT,
  `nome` varchar(255) NOT NULL,
- `disparador` varchar(5000) DEFAULT NULL,
- `identificacao` varchar(5000) DEFAULT NULL,
- `desc_hda` varchar(5000) DEFAULT NULL,
- `desc_hpp` varchar(5000) DEFAULT NULL,
- `desc_hs` varchar(5000) DEFAULT NULL,
- `desc_hpf` varchar(5000) DEFAULT NULL,
+ `disparador` varchar(2000) DEFAULT NULL,
+ `identificacao` varchar(2000) DEFAULT NULL,
+ `desc_hda` varchar(2000) DEFAULT NULL,
+ `desc_hpp` varchar(2000) DEFAULT NULL,
+ `desc_hs` varchar(2000) DEFAULT NULL,
+ `desc_hpf` varchar(2000) DEFAULT NULL,
  `arquivo` varchar(150) DEFAULT NULL,
  `diagnostico` varchar(1000) DEFAULT NULL,
  `cod_status` int(11) DEFAULT NULL,
@@ -309,6 +309,5 @@ CREATE TABLE `prompts` (
   `description` VARCHAR(255),
   `prompt_text` TEXT NOT NULL,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_prompts`)
+  `updated_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 );

@@ -1,0 +1,131 @@
+[12-Jan-2023 21:24:56 America/Fortaleza] PHP Warning:  require_once(/home3/labpet34/public_html/app/assets/pdf/bootstrap.php): failed to open stream: No such file or directory in /home3/labpet34/public_html/app/assets/pdf/index.php on line 77
+[12-Jan-2023 21:24:56 America/Fortaleza] PHP Fatal error:  require_once(): Failed opening required '/home3/labpet34/public_html/app/assets/pdf/bootstrap.php' (include_path='.:/opt/cpanel/ea-php70/root/usr/share/pear') in /home3/labpet34/public_html/app/assets/pdf/index.php on line 77
+[12-Jan-2023 21:41:14 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 15005
+[12-Jan-2023 21:41:14 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 15050
+[20-Jan-2023 14:06:57 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:06:57 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:06:57 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:06:57 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:06:57 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:06:57 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:06:57 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:06:58 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:08:10 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:08:10 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:08:10 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:08:10 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:08:10 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:08:10 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:08:11 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:08:11 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:10:43 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:10:43 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:10:43 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:10:43 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:10:43 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:10:43 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:11:53 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:11:53 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:11:53 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:11:53 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:11:53 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:11:53 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:11:53 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:11:53 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:17:23 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:17:23 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:17:23 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:17:23 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:17:23 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:17:23 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:17:23 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:17:23 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:18:33 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:18:33 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:18:33 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:18:33 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:18:33 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:18:33 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:18:33 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:18:33 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:19:34 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:19:34 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:19:34 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:19:34 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:19:34 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:19:34 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:19:35 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:19:35 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:19:52 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:19:52 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:19:52 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:19:52 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:19:52 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:19:52 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:19:53 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:19:53 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:20:43 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:20:43 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:20:43 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:20:43 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:20:43 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:20:43 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:20:43 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:20:43 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:20:57 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:20:57 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:20:57 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:20:57 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:20:57 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:20:57 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:20:57 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:20:57 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:21:21 America/Fortaleza] PHP Warning:  preg_match() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1124
+[20-Jan-2023 14:21:21 America/Fortaleza] PHP Warning:  strlen() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1130
+[20-Jan-2023 14:21:21 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1134
+[20-Jan-2023 14:21:21 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1138
+[20-Jan-2023 14:21:21 America/Fortaleza] PHP Warning:  substr() expects parameter 1 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 1142
+[20-Jan-2023 14:21:21 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/config_lang2fonts.php on line 19
+[20-Jan-2023 14:21:21 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 14:21:21 America/Fortaleza] PHP Warning:  preg_split() expects parameter 2 to be string, array given in /home3/labpet34/public_html/app/assets/pdf/mpdf60/classes/otl.php on line 5660
+[20-Jan-2023 15:09:38 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 15:09:47 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 15:09:57 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 15:10:06 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 15:10:15 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 15:14:21 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 15:43:41 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 15:43:51 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 15:46:34 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 15:52:55 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:02:42 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:04:25 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:04:59 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:08:02 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:08:47 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:09:21 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:09:45 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:10:19 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:10:32 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:10:46 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:23:49 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:30:46 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:33:46 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:33:58 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:34:40 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:35:03 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:35:18 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:35:41 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:36:08 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:36:29 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:36:39 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:38:11 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:46:17 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:46:37 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:47:14 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:48:04 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:48:17 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:48:28 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:49:58 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:50:52 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979
+[20-Jan-2023 16:51:05 America/Fortaleza] PHP Warning:  Division by zero in /home3/labpet34/public_html/app/assets/pdf/mpdf60/mpdf.php on line 24979

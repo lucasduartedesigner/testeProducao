@@ -1,0 +1,10 @@
+		.ui-autocomplete { 
+			z-index:2147483647; 
+		}
+		.ui-datepicker {
+			z-index:2147483647 !important;
+		}
+		.dataTables_length, .dataTables_info, .dataTables_paginate {
+			padding-left: 15px;
+			padding-right: 15px;
+		}

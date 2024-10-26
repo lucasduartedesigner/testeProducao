@@ -1,0 +1,50 @@
+.gradient {
+	border: 0px;
+	background-color: #f0f2ff;
+	background-gradient: linear #c7cdde #f0f2ff 0 1 0 0.5;
+}
+h4 {
+	font-family: sans;
+	font-weight: bold;
+	margin-top: 1em;
+	margin-bottom: 0.5em;
+}
+
+.myfixed1 { position: absolute;
+	overflow: visible;
+	left: 0;
+	bottom: 0;
+	width : 100%;
+	border: 0px;
+	background-color: #118B9F;
+	color: #fff;
+	background-gradient: linear #118B9F #4CA8B7 0 1 0 0.5;
+	padding: 1.5em;
+	font-family:sans;
+	margin: 0;
+}
+.myfixed2 { 
+	position: fixed;
+	overflow: auto;
+	right: 0;
+	bottom: 0mm;
+	width: 45mm;
+	background-color: #fff;
+	border: 3px solid #118B9F;
+	border-radius: 3px;
+	padding: 0.5em;
+	font-family:sans;
+	margin: 0;
+}
+.myfixed3 { 
+	position: fixed;
+	left: 0;
+	bottom: 22mm;
+	width: 45mm;
+}
+.myfixed4 { 
+	position: fixed;
+	left: 60mm;
+	bottom: 22mm;
+	width: 45mm;
+}
