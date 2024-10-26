@@ -5,27 +5,36 @@
 				<div class="card">
 					<div class="card-datatable">
 						<div class="table-responsive">
-							<table class="table table-striped border-bottom table-funcionarios">
+							<table class="table table-striped border-bottom table-avaliacao">
 								<thead>
 									<tr>
 										<th width="1"></th>
-										<th>Nome</th>
-										<th>Avaliações</th>
+										<th>Caso clínico</th>
+										<th>Período</th>
+										<th>Turma</th>
+										<th>Dt. Avaliação</th>
+										<th>Dt. Grupo</th>
+										<th>Dt. Turma</th>
 										<th>Status</th>
 										<th width="1"></th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
+                                    
+                                        $cond = ($_SESSION['id_nivel_acesso'] == 2) ? " AND a.id_professor = " . $_SESSION['id_professor'] : '';
 
-										$sql = "SELECT p.id_problema, p.nome, p.cod_status, count(a.id_avaliacao) qtd_avaliacao
-                                                FROM problema p
-                                                LEFT JOIN avaliacao a 
-                                                    ON p.id_problema = a.id_problema
-                                                    AND a.status IS NOT NULL
-                                                WHERE p.cod_status IS NOT NULL
-                                                GROUP BY p.id_problema, p.nome, p.cod_status
-                                                ORDER BY p.nome ";
+										$sql = "SELECT a.*, p.nome, 
+                                                       GROUP_CONCAT(ast.subturma ORDER BY ast.subturma SEPARATOR '<br> ') AS subturma
+                                                FROM avaliacao a
+                                                INNER JOIN problema p
+                                                    ON a.id_problema = p.id_problema AND p.status IS NOT NULL 
+                                                INNER JOIN avaliacao_subturma ast
+                                                    ON a.id_avaliacao = ast.id_avaliacao
+                                                WHERE a.status IS NOT NULL
+                                                $cond
+                                                GROUP BY a.id_avaliacao
+                                                ORDER BY a.data_inicio, a.data_grupo, a.data_turma";
 
 										$stmt = mysqli_prepare($conn, $sql);
 
@@ -39,27 +48,35 @@
 											{
 												extract($row);
 											}
-                                            
-                                            $status = !empty($cod_status) ? 'Ativo' : 'Inativo';
-
-											$href = "$path?id=$id_problema&p=1";
 
 											echo '<tr>';
 												echo '<td>';
-													btnEdit("href='$href'");
+													btnEdit("onClick='editar($id_avaliacao)'");
 												echo '</td>';
 												echo '<td>';
 													echo $nome;
 												echo '</td>';
 												echo '<td class="text-center">';
-													echo @$qtd_avaliacao;
+													echo $periodo;
+												echo '</td>';
+												echo '<td class="text-center">';
+													echo $subturma;
+												echo '</td>';
+												echo '<td class="text-center">';
+													echo dataBR($data_inicio);
+												echo '</td class="text-center">';
+												echo '<td>';
+													echo dataBR($data_grupo);
+												echo '</td>';
+												echo '<td class="text-center">';
+													echo dataBR($data_turma);
 												echo '</td>';
 												echo '<td>';
-													echo $status;
+													echo statusCaso($status);
 												echo '</td>';
 												echo '<td>';
 												  if( @$acessos[$namePage]['deletar'] == true ) {
-													  btnDelete($id_problema, "Problema: $nome", "problema");
+													  btnDelete($id_avaliacao, "Avaliação: $nome - $subturma", "avaliacao");
 												  }
 												echo '</td>';
 											echo '</tr>';
