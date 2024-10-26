@@ -15,14 +15,14 @@
         <p style="color: red;"><?php echo $error; ?></p>
     <?php endif; ?>
 
-    <form action="/php/cadastra/pessoa.php" method="POST">
+    <form action="php/cadastra/pessoa.php" method="POST">
         
-        <label for="username">Matricula:</label>
-        <input type="text" name="username" id="username" required>
+        <label for="matricula">Matricula:</label>
+        <input type="text" name="matricula" id="matricula" required>
         <br>
 
-        <label for="username">Nome:</label>
-        <input type="text" name="username" id="username" required>
+        <label for="matricula">Nome:</label>
+        <input type="text" name="nome" id="nome" required>
         <br>
 
         <label for="text">CPF:</label>
@@ -33,8 +33,8 @@
         <input type="text" name="email" id="email" required>
         <br>
 
-        <label for="password">Senha:</label>
-        <input type="password" name="password" id="password" required>
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="senha" required>
         <br>
 
         <button type="submit">Entrar</button>
