@@ -16,7 +16,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         $senhaMd5 = md5($senha);
 
         // Consulta SQL para verificar o usuário e senha
-        $sql = "SELECT * FROM pessoa WHERE matricula = ? AND senha = ?";
+        $sql = "SELECT p.*, na.nome nivel_acesso
+                FROM pessoa p
+                LEFT JOIN nivel_acesso na
+                ON p.id_nivel_acesso = na.id_nivel_acesso
+                WHERE p.matricula = ?
+                AND senha = ? ";
 
         $stmt = $conn->prepare($sql);
 
@@ -31,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         {
             $rows = $result->fetch_assoc();
 
-            foreach ($user as $key => $value) 
+            foreach ($rows as $key => $value) 
             {
                 $_SESSION[$key] = $value;
             }

@@ -3,7 +3,7 @@
 	//Verifica quantidade de situações problema totais
 	$sql 	= "SELECT count(*) AS total 
 			   FROM problema 
-			   WHERE status IS NOT NULL ";
+			   WHERE cod_status IS NOT NULL ";
 
 	$result = $conn->query($sql);
 	$row 	= $result->fetch_array();
@@ -12,8 +12,9 @@
 
 	//Verifica quantidade de estudantes total
 	$sql 	= "SELECT count(*) AS total 
-			   FROM estudante 
-			   WHERE status IS NOT NULL ";
+			   FROM pessoa 
+			   WHERE cod_status IS NOT NULL 
+			   AND cod_tipo = 2 ";
 
 	$result = $conn->query($sql);
 	$row 	= $result->fetch_array();
@@ -27,16 +28,12 @@
 
 	$result = $conn->query($sql);
 	$row 	= $result->fetch_array();
-
+ 
 	$total_avaliacao = $row["total"];
 
 	$sql 	= "SELECT count(*) AS total 
-			   FROM pergunta p 
-               INNER JOIN pergunta_turma pt 
-               ON p.id_pergunta = pt.id_pergunta 
-               AND pt.status IS NOT NULL
-			   WHERE p.status IS NOT NULL
-               AND p.gabarito = 1 ";
+			   FROM pergunta_problema
+			   WHERE cod_status IS NOT NULL";
 
 	$result = $conn->query($sql);
 	$row 	= $result->fetch_array();
@@ -44,8 +41,8 @@
 	$total_acertos = $row["total"];
 
 	$sql 	= "SELECT count(*) AS total 
-			   FROM pergunta_turma pt
-			   WHERE pt.status IS NOT NULL";
+			   FROM avaliacao_problema
+			   WHERE cod_status IS NOT NULL";
 
 	$result = $conn->query($sql);
 	$row 	= $result->fetch_array();

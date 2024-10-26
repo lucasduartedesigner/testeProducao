@@ -86,20 +86,9 @@
 
             function generateBrowserStatsHTML($conn, $raiz) {
                 // Consulta SQL
-                $sql = "
-                SELECT navegador, SUM(qtd_visualizacoes) as total_visualizacoes FROM (
-                    SELECT navegador, COUNT(*) as qtd_visualizacoes
-                    FROM log_acesso_professor
-                    GROUP BY navegador
-
-                    UNION ALL
-
-                    SELECT navegador, COUNT(*) as qtd_visualizacoes
-                    FROM log_acesso_estudante
-                    GROUP BY navegador
-                ) as union_table
-                GROUP BY navegador;
-                ";
+                $sql = "SELECT navegador, COUNT(*) as qtd_visualizacoes
+                        FROM log_acesso
+                        GROUP BY navegador";
 
                 $result = $conn->query($sql);
 
@@ -216,12 +205,12 @@
                                                 $sql = "SELECT a.*, p.nome, a.codcurso, a.periodo, a.semestre, a.codturma, ast.subturma
                                                         FROM avaliacao a
                                                           INNER JOIN problema p
-                                                            ON a.id_problema = p.id_problema AND p.status IS NOT NULL 
+                                                            ON a.id_problema = p.id_problema AND p.cod_status IS NOT NULL 
                                                           INNER JOIN avaliacao_subturma ast
                                                             ON a.id_avaliacao = ast.id_avaliacao
                                                         WHERE a.status IS NOT NULL
                                                         AND a.data_inicio >= CURDATE()
-                                                        ORDER BY a.data_inicio, a.data_grupo, a.data_turma ";
+                                                        ORDER BY a.data_inicio, a.data_fim ";
 
                                                 $stmt = mysqli_prepare($conn, $sql);
 
@@ -288,18 +277,11 @@
                                     <div class="avatar-group">
                                         <?php
                                              $sql = "SELECT e.* 
-                                                    FROM estudante e
-                                                    WHERE e.status = 1
-                                                    AND e.codcurso = ?
-                                                    AND e.periodo = ?
-                                                    AND e.semestre = ?
-                                                    AND e.codturma = ?
-                                                    AND e.subturma = ?
+                                                    FROM pessoa e
+                                                    WHERE e.cod_status = 1
                                                     ORDER BY e.nome ";
 
                                             $stmt = mysqli_prepare($conn, $sql);
-
-                                            mysqli_stmt_bind_param($stmt, "iisss", $codcurso, $periodo, $semestre, $codturma, $subturma);
 
                                             mysqli_stmt_execute($stmt);
 

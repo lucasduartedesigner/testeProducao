@@ -21,13 +21,13 @@
             <?php
             
 				$sql = "SELECT *
-                        FROM notificacao_professor np
-                        WHERE np.status = 1
-                        AND np.id_professor = ? ";
+                        FROM notificacao n
+                        WHERE n.status = 1
+                        AND n.id_pessoa = ? ";
 
 				$stmt = mysqli_prepare($conn, $sql);
 
-				mysqli_stmt_bind_param($stmt, "i", $_SESSION['id_professor']);
+				mysqli_stmt_bind_param($stmt, "i", $_SESSION['id_pessoa']);
 
 				mysqli_stmt_execute($stmt);
 
@@ -77,11 +77,7 @@
                                   </li>';
                         }
                     }
-/*
-                    echo' <li class="dropdown-menu-footer">
-                           <a class="btn btn-primary w-100" href="#">Ler todas as notificações</a>
-                          </li>';
-*/
+
                     echo'</ul>
                          </li>';
 

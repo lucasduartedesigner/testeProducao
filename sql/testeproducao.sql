@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 26/10/2024 às 18:38
+-- Tempo de geração: 26/10/2024 às 19:34
 -- Versão do servidor: 8.2.0
 -- Versão do PHP: 8.2.13
 
@@ -279,6 +279,24 @@ CREATE TABLE IF NOT EXISTS `exame_laboratorial_problema` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `log_acesso`
+--
+
+DROP TABLE IF EXISTS `log_acesso`;
+CREATE TABLE IF NOT EXISTS `log_acesso` (
+  `id_log_acesso` int NOT NULL AUTO_INCREMENT,
+  `id_pessoa` int NOT NULL,
+  `navegador` varchar(100) DEFAULT NULL,
+  `sistema` varchar(100) DEFAULT NULL,
+  `dispositivo` varchar(100) DEFAULT NULL,
+  `ip_acesso` varchar(45) DEFAULT NULL,
+  `dt_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_log_acesso`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `menu`
 --
 
@@ -296,7 +314,20 @@ CREATE TABLE IF NOT EXISTS `menu` (
   `user_updated` int DEFAULT NULL,
   `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_menu`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `menu`
+--
+
+INSERT INTO `menu` (`id_menu`, `nome`, `descricao`, `ordem`, `link`, `icone`, `status`, `user_created`, `dt_created`, `user_updated`, `dt_updated`) VALUES
+(1, 'Dashboard', NULL, 1, 'dashboard.php', '<i data-feather=\"home\"></i>', 1, 1, '2024-07-10 05:26:10', NULL, '2024-07-10 06:42:38'),
+(2, 'Caso clínico', NULL, 2, 'problema.php', '<i data-feather=\"file-text\"></i>', 1, 1, '2024-07-10 06:43:42', NULL, '2024-07-30 00:28:26'),
+(3, 'Estudante', NULL, 3, 'estudante.php', '<i data-feather=\"users\"></i>', 1, 1, '2024-07-10 06:44:44', NULL, '2024-07-30 00:30:08'),
+(4, 'Nivel acesso', NULL, 7, 'acesso.php', '<i data-feather=\'shield\'></i>', 1, 1, '2024-07-10 06:46:41', NULL, '2024-07-30 00:30:26'),
+(5, 'Resultado', NULL, 6, 'resultado.php', '<i data-feather=\'award\'></i>', 1, 1, '2024-07-10 06:48:44', NULL, '2024-07-30 00:30:22'),
+(6, 'Professor', NULL, 4, 'professor.php', '<i data-feather=\"user\"></i>', 1, 1, '2024-07-11 06:04:45', NULL, '2024-07-11 06:06:45'),
+(7, 'Avaliação', NULL, 5, 'avaliacao.php', '<i data-feather=\"calendar\"></i>', 1, 1, '2024-07-30 00:24:13', NULL, '2024-07-30 00:30:15');
 
 -- --------------------------------------------------------
 
@@ -319,7 +350,20 @@ CREATE TABLE IF NOT EXISTS `menu_acesso` (
   PRIMARY KEY (`id_menu_acesso`),
   KEY `fk_menu_acesso_nivel_acesso` (`id_nivel_acesso`),
   KEY `fk_menu_acesso_menu` (`id_menu`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `menu_acesso`
+--
+
+INSERT INTO `menu_acesso` (`id_menu_acesso`, `id_nivel_acesso`, `id_menu`, `leitura`, `editar`, `deletar`, `user_created`, `dt_created`, `user_updated`, `dt_updated`) VALUES
+(1, 1, 1, 1, 1, 1, NULL, '2024-10-26 19:20:34', NULL, '2024-10-26 19:20:34'),
+(2, 1, 2, 1, 1, 1, NULL, '2024-10-26 19:20:34', NULL, '2024-10-26 19:20:34'),
+(3, 1, 3, 1, 1, 1, 1, '2024-10-26 19:23:58', NULL, '2024-10-26 19:23:58'),
+(4, 1, 4, 1, 1, 1, NULL, '2024-10-26 19:23:58', NULL, '2024-10-26 19:23:58'),
+(5, 1, 5, 1, 1, 1, NULL, '2024-10-26 19:24:27', NULL, '2024-10-26 19:24:27'),
+(6, 1, 6, 1, 1, 1, NULL, '2024-10-26 19:24:27', NULL, '2024-10-26 19:24:27'),
+(7, 1, 7, 1, 1, 1, NULL, '2024-10-26 19:28:06', NULL, '2024-10-26 19:28:06');
 
 -- --------------------------------------------------------
 
@@ -337,7 +381,14 @@ CREATE TABLE IF NOT EXISTS `nivel_acesso` (
   `user_updated` int DEFAULT NULL,
   `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_nivel_acesso`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `nivel_acesso`
+--
+
+INSERT INTO `nivel_acesso` (`id_nivel_acesso`, `nome`, `status`, `user_created`, `dt_created`, `user_updated`, `dt_updated`) VALUES
+(1, 'Administrador', 1, NULL, '2024-10-26 19:19:50', NULL, '2024-10-26 19:19:50');
 
 -- --------------------------------------------------------
 
@@ -411,8 +462,8 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
 --
 
 INSERT INTO `pessoa` (`id_pessoa`, `id_nivel_acesso`, `nome`, `matricula`, `cpf`, `email`, `senha`, `cod_status`, `cod_tipo`, `estilo`, `reset`, `user_created`, `dt_created`, `user_updated`, `dt_updated`) VALUES
-(1, 0, 'Lucas', '073842', '14126735771', 'lucasduarte@feso.edu.br', '202cb962ac59075b964b07152d234b70', NULL, NULL, 1, NULL, NULL, '2024-10-26 17:58:23', NULL, '2024-10-26 17:58:23'),
-(2, 0, 'Brucin', '068755', '11122233344', 'brucin@gmail.com', '202cb962ac59075b964b07152d234b70', NULL, NULL, 1, NULL, NULL, '2024-10-26 18:07:31', NULL, '2024-10-26 18:07:31');
+(1, 1, 'Lucas', '073842', '14126735771', 'lucasduarte@feso.edu.br', '202cb962ac59075b964b07152d234b70', NULL, NULL, 1, NULL, NULL, '2024-10-26 17:58:23', NULL, '2024-10-26 19:20:02'),
+(2, 1, 'Brucin', '068755', '11122233344', 'brucin@gmail.com', '202cb962ac59075b964b07152d234b70', NULL, NULL, 1, NULL, NULL, '2024-10-26 18:07:31', NULL, '2024-10-26 19:20:05');
 
 -- --------------------------------------------------------
 
