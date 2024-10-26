@@ -31,7 +31,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST")
         {
             $rows = $result->fetch_assoc();
 
-            foreach ($user as $key => $value) 
+            foreach ($rows as $key => $value) 
             {
                 $_SESSION[$key] = $value;
             }

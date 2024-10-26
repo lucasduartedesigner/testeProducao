@@ -18,11 +18,6 @@
 		extract($row);
 	}
 
-	//Define o nome do arquivo acessado
-	$ArrPATH  = explode("/",$_SERVER['SCRIPT_NAME']);
-	$path 	  = $ArrPATH[count($ArrPATH)-1];
-	$namePage = str_replace(".php" , "", $path);
-
 ?>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -48,3 +43,12 @@
 	<?php } ?>
 
 </head>
+
+<?php
+
+	//Define o nome do arquivo acessado
+	$ArrPATH  = explode("/",$_SERVER['SCRIPT_NAME']);
+	$path 	  = $ArrPATH[count($ArrPATH)-1];
+	$namePage = str_replace(".php" , "", $path);
+	
+?>

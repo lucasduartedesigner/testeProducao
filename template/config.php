@@ -23,20 +23,20 @@
 	{
 		if(empty($_COOKIE['login']))
 		{
-			$_SESSION['loginErro'] = "Você precisa fazer login para acessar o sistema!";
+			$_SESSION['msg'] = "Você precisa fazer login para acessar o sistema!";
 
-			header("Location: {$raiz}index.php");
+			//header("Location: {$raiz}index.php");
 
-			$return = 1;
+			//$return = 1;
 		}
 		else
 		{
 			$user = $_COOKIE['login'];
 
 			//Inclui o arquivo com a function de validação de usuario
-			require_once("{$raiz}php/function/valida.php");
+			//require_once("{$raiz}php/function/valida.php");
 
-			sessionDadosUsuario($conn, $user);
+			//sessionDadosUsuario($conn, $user);
 		}
 	}
     else
