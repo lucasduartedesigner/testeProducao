@@ -26,9 +26,14 @@
 
                         $options = array(13 => 'Medicina');
 
-                        selectOptionsKey("col-md-6 col-12", "Curso", 'codcurso', $curso, $options, "");
+                        selectOptionsKey("col-md-6 col-12", "Curso", 'codcurso', @$curso, $options, "");
 
-                        $options = array(5 => '5º',  6 => '6º');
+                        $options = [];
+
+                        for ($i = 1; $i <= 12; $i++)
+                        {
+                            $options[$i] = "{$i}º Período";
+                        }
 
                         selectOptionsKey("col-md-6 col-12", "Período", 'periodo', @$periodo, $options, "");
 
@@ -52,11 +57,11 @@
 					?>
 					</div>
 				</div>
-				<?php //if( @$acessos['clientes']['editar'] == true ) { ?>
+				<?php if( @$acessos['clientes']['editar'] == true ) { ?>
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-primary btn-cadastrar">Cadastrar</button>
 					</div>
-				<?php //} ?>
+				<?php } ?>
 			</div>
 		</div>
 	</div>
