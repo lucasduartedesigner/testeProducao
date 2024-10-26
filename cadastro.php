@@ -15,7 +15,7 @@
         <p style="color: red;"><?php echo $error; ?></p>
     <?php endif; ?>
 
-    <form action="/php/cadastro/pessoa.php" method="POST">
+    <form action="/php/cadastra/pessoa.php" method="POST">
         
         <label for="username">Matricula:</label>
         <input type="text" name="username" id="username" required>

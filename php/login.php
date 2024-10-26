@@ -2,7 +2,7 @@
 
 session_start();
 
-require 'conn.php'; // Inclua o arquivo de conexão com o banco de dados
+require 'conn.php'; // conexão com o banco de dados
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST['username'];
