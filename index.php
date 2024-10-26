@@ -22,12 +22,12 @@ session_start();
     <?php endif; ?>
 
     <form action="/php/login.php" method="POST">
-        <label for="username">Usuário:</label>
-        <input type="text" name="username" id="username" required>
+        <label for="matricula">Matrícula:</label>
+        <input type="text" name="matricula" id="matricula" required>
         <br>
 
-        <label for="password">Senha:</label>
-        <input type="password" name="password" id="password" required>
+        <label for="senha">Senha:</label>
+        <input type="password" name="senha" id="senha" required>
         <br>
 
         <button type="submit">Entrar</button>

@@ -23,11 +23,11 @@ session_start();
 
     <form action="php/cadastra/pessoa.php" method="POST">
         
-        <label for="matricula">Matricula:</label>
+        <label for="text">Matricula:</label>
         <input type="text" name="matricula" id="matricula" required>
         <br>
 
-        <label for="matricula">Nome:</label>
+        <label for="nome">Nome:</label>
         <input type="text" name="nome" id="nome" required>
         <br>
 

@@ -6,7 +6,7 @@ require 'conn.php'; // conexão com o banco de dados
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $username = $_POST['username'];
-    $password = $_POST['password'];
+    $senha = $_POST['senha'];
 
     if (!empty($username) && !empty($password)) {
         // Criptografa a senha com MD5 para comparação
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             // Login bem-sucedido
             $_SESSION['loggedin'] = true;
             $_SESSION['username'] = $username;
-            header("Location: dashboard.php"); // Redireciona para o dashboard
+            header("Location: ../dashboard.php"); // Redireciona para o dashboard
             exit();
         } else {
             $error = "Usuário ou senha inválidos!";
