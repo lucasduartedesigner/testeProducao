@@ -1,3 +1,9 @@
+<?php
+
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -38,6 +44,11 @@
         <br>
 
         <button type="submit">Entrar</button>
+
+        <?php if (isset($_SESSION['msg'])): ?>
+            <p style="color: red;"><?php echo $_SESSION['msg']; $_SESSION['msg']= "" ?></p>
+        <?php endif; ?>
+
     </form>
 
 </body>

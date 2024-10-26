@@ -26,24 +26,30 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         if ($result->num_rows > 0) {
             // Login bem-sucedido
             $_SESSION['msg'] = "Usuário já existente";
-            $_SESSION['matricula'] = $matricula;
-            header("Location: index.php"); // Redireciona para o index
+            header("Location: ../../cadastro.php"); // Redireciona para o cadastro
             exit();        
         } else {
             // Prepara a inserção no banco
             $sql = "INSERT INTO pessoa (nome, senha, cpf, email, matricula) VALUES (?, ?, ?, ?, ?)";
             $stmt = $conn->prepare($sql);
             $stmt->bind_param("sssss", $nome, $senhaMd5, $cpf, $email, $matricula);
+            // Executa e verifica se a inserção foi bem-sucedida
+
+            if ($stmt->execute()) {
+            $_SESSION['msg'] = "Cadastro realizado com sucesso!";
+            header("Location: ../../cadastro.php"); // Redireciona para o cadastro
+            exit();  
+            } else {
+            $_SESSION['msg'] = "Erro ao registrar usuário:";
+            header("Location: ../../cadastro.php"); // Redireciona para o cadastro
+            exit(); 
+            }
         }
+
     } else {
         $error = "Todos os campos são obrigatórios!";
     }
 
-     // Executa e verifica se a inserção foi bem-sucedida
-     if ($stmt->execute()) {
-        echo "Usuário registrado com sucesso!";
-    } else {
-        echo "Erro ao registrar usuário: " . $stmt->error;
-    }
+     
 }
 ?>
