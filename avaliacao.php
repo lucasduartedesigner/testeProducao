@@ -135,7 +135,7 @@
 
                         var title = $(cell).text();
 
-                        if (i === 0 || i === 8)
+                        if (i === 0 || i === 7)
                         {
                             $(cell).html('');
                         }
@@ -177,9 +177,9 @@
                 "order": [[ 4, "desc" ]],
                 "pageLength": 50,
                 columnDefs: [
-                    { orderable: false, targets: [0, 8] },
+                    { orderable: false, targets: [0, 7] },
                     { type: 'num', targets: 2 },
-                    { type: 'date-br', targets: [4, 5, 6] }
+                    { type: 'date-br', targets: [4, 5] }
                 ],
                 dom: 'Blfrtip',
                 buttons: [

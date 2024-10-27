@@ -22,21 +22,24 @@
 
                         selectOptionsKey("col-md-12 col-12", "Professor", 'id_professor', "", $arrayProfessor, "");
 
-                        inputForm("col-md-6 col-12", "Dt. Avaliação", "data_inicio", "", "required autocomplete='off'", "data", "");
+                        inputForm("col-md-6 col-12", "Dt. Início", "data_inicio", "", "required autocomplete='off'", "data", "");
 
-                        inputForm("col-md-6 col-12", "Dt. Grupo", "data_grupo", "", "required autocomplete='off'", "data", "");
-
-                        inputForm("col-md-6 col-12", "Dt. Turma", "data_turma", "", "required autocomplete='off'", "data", "");
+                        inputForm("col-md-6 col-12", "Dt. Fim", "data_fim", "", "required autocomplete='off'", "data", "");
 
                         $options = array('Agendado', 'Em avaliação', 'Finalizado', 'Cancelado');
 
                         selectOptions("col-md-6 col-12", "Status", 'status', "", $options, "");
 
-                        $options = array(13 => 'Medicina');
+                        $options = array(17 => 'Enfermagem', 13 => 'Medicina', 111 => 'Fisioterapia', 112 => 'Terapia Ocupacional');
 
-                        selectOptionsKey("col-12", "Curso", 'codcurso', "", $options, "required");
+                        selectOptionsKey("col-md-6 col-12", "Curso", 'codcurso', "", $options, "required");
 
-                        $options = array(5 => '5º',  6 => '6º');
+                        $options = [];
+
+                        for ($i = 1; $i <= 12; $i++)
+                        {
+                            $options[$i] = "{$i}º Período";
+                        }
 
                         selectOptionsKey("col-md-6 col-12", "Período", 'periodo', "", $options, "required");
 
