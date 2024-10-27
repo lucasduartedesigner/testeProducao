@@ -26,14 +26,14 @@
  		<?php
 			if(!empty($_GET['user']))
 			{
-				$id_pessoa = $_GET['user'];
+				$id_estudante = $_GET['user'];
 
-				$sql = "SELECT * FROM pessoa
-						WHERE id_pessoa = ? ";
+				$sql = "SELECT * FROM estudante
+						WHERE id_estudante = ? ";
 
 				$stmt = mysqli_prepare($conn, $sql);
 
-				mysqli_stmt_bind_param($stmt, "s", $id_pessoa);
+				mysqli_stmt_bind_param($stmt, "s", $id_estudante);
 				mysqli_stmt_execute($stmt);
 
 				$result = mysqli_stmt_get_result($stmt);

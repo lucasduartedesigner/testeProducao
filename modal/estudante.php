@@ -24,7 +24,7 @@
 
                         inputForm("col-md-12 col-12", "Email", "email", "", "", "email", "");
 
-                        $options = array(13 => 'Medicina');
+                        $options = array(17 => 'Enfermagem', 13 => 'Medicina', 111 => 'Fisioterapia', 112 => 'Terapia Ocupacional');
 
                         selectOptionsKey("col-md-6 col-12", "Curso", 'codcurso', @$curso, $options, "");
 
@@ -57,7 +57,7 @@
 					?>
 					</div>
 				</div>
-				<?php if( @$acessos['clientes']['editar'] == true ) { ?>
+				<?php if( @$acessos['estudante']['editar'] == true ) { ?>
 					<div class="modal-footer">
 						<button type="submit" class="btn btn-primary btn-cadastrar">Cadastrar</button>
 					</div>

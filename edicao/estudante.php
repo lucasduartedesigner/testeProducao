@@ -20,11 +20,16 @@
 
                                 selectOptions("col-md-4 col-12", "Status", 'status', $status, $options, "");
 
-                                $options = array(13 => 'Medicina');
+                                $options = array(17 => 'Enfermagem', 13 => 'Medicina', 111 => 'Fisioterapia', 112 => 'Terapia Ocupacional');
 
                                 selectOptionsKey("col-md-3 col-12", "Curso", 'codcurso', $curso, $options, "");
 
-                                $options = array(5 => '5º',  6 => '6º');
+                                $options = [];
+
+                                for ($i = 1; $i <= 12; $i++)
+                                {
+                                    $options[$i] = "{$i}º Período";
+                                }
 
                                 selectOptionsKey("col-md-3 col-12", "Período", 'periodo', @$periodo, $options, "");
 
