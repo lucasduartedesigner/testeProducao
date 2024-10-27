@@ -84,7 +84,7 @@
 
 						var title = $(cell).text();
 
-						if (i === 0 || i === 8)
+						if (i === 0 || i === 5)
 						{
 							$(cell).html('');
 						}
@@ -127,7 +127,7 @@
                 "pageLength": 50,
 				columnDefs: [
 					{ orderable: false, targets: 0 },
-					{ orderable: false, targets: 8 }
+					{ orderable: false, targets: 5 }
 				],
 				dom: 'Blfrtip',
 				buttons: [

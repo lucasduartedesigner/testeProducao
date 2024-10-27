@@ -13,9 +13,6 @@
 										<th>Matrícula</th>
 										<th>CPF</th>
 										<th>Email</th>
-										<th>Curso</th>
-										<th class="text-center">Período</th>
-										<th>Turma</th>
 										<th width="1"></th>
 									</tr>
 								</thead>
@@ -39,10 +36,8 @@
 											{
 												extract($row);
 											}
-                                            
-                                            $curso = ($codcurso == 13) ? 'Medicina' : '-';
 
-											$href = "$path?url=$url&user=$id_estudante";
+											$href = "$path?url=$url&user=$id_pessoa";
 
 											echo '<tr>';
 												echo '<td>';
@@ -61,17 +56,8 @@
 													echo $email;
 												echo '</td>';
 												echo '<td>';
-													echo $curso;
-												echo '</td>';
-												echo '<td class="text-center">';
-													echo $periodo;
-												echo '</td>';
-												echo '<td>';
-													echo $subturma;
-												echo '</td>';
-												echo '<td>';
 												  if( @$acessos[$namePage]['deletar'] == true ) {
-													  btnDelete($id_estudante, "Estudante: $nome", "estudante");
+													  btnDelete($id_pessoa, "Professor: $nome", "pessoa");
 												  }
 												echo '</td>';
 											echo '</tr>';
