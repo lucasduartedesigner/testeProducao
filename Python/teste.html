@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>ChatGPT Interação</title>
+</head>
+<body>
+    <h2>Histórico de Chat:</h2>
+    <div id="chatgpt-response" style="border: 1px solid #ccc; padding: 10px; height: 300px; overflow-y: auto;">
+        Aguardando interação...
+    </div>
+    
+    <!-- Campo de entrada para a pergunta do usuário -->
+    <input type="text" id="user-question" placeholder="Digite sua pergunta e pressione Enter">
+
+    <!-- Botão para avaliar a assertividade das perguntas -->
+    <h2>Avaliação de Assertividade</h2>
+    <button id="evaluate-assertiveness-btn">Avaliar Assertividade das Perguntas</button>
+    <div id="assertiveness-result" style="border: 1px solid #ccc; padding: 10px; margin-top: 20px;">
+        <strong>Avaliação de Assertividade:</strong>
+        <p>Aguardando avaliação...</p>
+    </div>
+    
+    <!-- Link para o arquivo JS -->
+    <script src="requests.js"></script>
+</body>
+</html>
