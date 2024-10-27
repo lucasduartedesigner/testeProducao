@@ -69,7 +69,7 @@
 
                             $options = array('Ativo', 'Inativo');
 
-                            selectOptions("col-md-3 col-12", "Status", 'status', @$status, $options, "");
+                            selectOptions("col-md-3 col-12", "Status", 'cod_status', @$cod_status, $options, "");
 
                             if(!empty($arquivo))
                             {

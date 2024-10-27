@@ -16,8 +16,14 @@
 
 	$arrayDados = array( 
 						 "nome"	 	         => "'$nome'",
-						 "descricao"         => "'$descricao'",
-						 "status"	         => "'$status'"
+						 "disparador"        => "'$disparador'",
+						 "identificacao"     => "'$identificacao'",
+						 "desc_hda"          => "'$desc_hda'",
+						 "desc_hpp"          => "'$desc_hpp'",
+						 "desc_hs"           => "'$desc_hs'",
+						 "desc_hpf"          => "'$desc_hpf'",
+						 "diagnostico"       => "'$diagnostico'",
+						 "cod_status"	     => "'$cod_status'"
 						);
 
     $arrayDados = removeNullFromArray($arrayDados);
@@ -35,11 +41,11 @@
         
         if(!empty($id_problema))
         {
-            $sql = "INSERT INTO pergunta (descricao, status, id_problema, tipo, ordem, user_created, top_position, left_position)
-                    SELECT nome AS descricao, status, ? AS id_problema, 2 AS tipo, id_exame_fisico AS ordem, ? AS user_created, top_position, left_position
-                    FROM exame_fisico
+            $sql = "INSERT INTO exame_fisico (descricao, cod_status, id_problema, cod_tipo, ordem, user_created, top_position, left_position)
+                    SELECT nome AS descricao, status, ? AS id_problema, 2 AS tipo, id_config_exame_fisico AS ordem, ? AS user_created, top_position, left_position
+                    FROM config_exame_fisico
                     WHERE status IS NOT NULL
-                    ORDER BY id_exame_fisico";
+                    ORDER BY id_config_exame_fisico";
 
             $stmt = mysqli_prepare($conn, $sql);
 
