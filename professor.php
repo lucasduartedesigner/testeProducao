@@ -26,14 +26,14 @@
  		<?php
 			if(!empty($_GET['user']))
 			{
-				$id_pessoa = $_GET['user'];
+				$id_professor = $_GET['user'];
 
-				$sql = "SELECT * FROM pessoa
-						WHERE id_pessoa = ? ";
+				$sql = "SELECT * FROM professor
+						WHERE id_professor = ? ";
 
 				$stmt = mysqli_prepare($conn, $sql);
 
-				mysqli_stmt_bind_param($stmt, "s", $id_pessoa);
+				mysqli_stmt_bind_param($stmt, "s", $id_professor);
 				mysqli_stmt_execute($stmt);
 
 				$result = mysqli_stmt_get_result($stmt);
@@ -42,8 +42,6 @@
 				if(!empty($row))
 				{
 					extract($row);
-
-                    $curso = ($codcurso == 13) ? 'Medicina' : '-';
 				}
 
 				include_once('edicao/professor.php');
@@ -84,7 +82,7 @@
 
 						var title = $(cell).text();
 
-						if (i === 0 || i === 5)
+						if (i === 0 || i === 6)
 						{
 							$(cell).html('');
 						}
@@ -127,7 +125,7 @@
                 "pageLength": 50,
 				columnDefs: [
 					{ orderable: false, targets: 0 },
-					{ orderable: false, targets: 5 }
+					{ orderable: false, targets: 6 }
 				],
 				dom: 'Blfrtip',
 				buttons: [

@@ -41,7 +41,7 @@
 												extract($row);
 											}
                                             
-                                            $status = !empty($status) ? 'Ativo' : 'Inativo';
+                                            $status = !empty($cod_status) ? 'Ativo' : 'Inativo';
 
 											$href = "$path?id=$id_problema&p=1";
 

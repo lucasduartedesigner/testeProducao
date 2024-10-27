@@ -2,9 +2,8 @@
 
     $arrayProfessor = array();
 
-	$sql = "SELECT * FROM pessoa
-			WHERE cod_status = 1
-			AND cod_tipo = 1
+	$sql = "SELECT * FROM professor
+			WHERE status = 1
 			ORDER BY nome";
 
 	$result = $conn->query($sql);
@@ -15,10 +14,10 @@
 
 		while($row1 = $result->fetch_assoc()) 
 		{
-            $id_pessoa = $row1['id_pessoa'];
+            $id_professor = $row1['id_professor'];
             $professor    = $row1['nome'];
 
-            $arrayProfessor[$id_pessoa] = $professor;
+            $arrayProfessor[$id_professor] = $professor;
 	  	}
 	}
 

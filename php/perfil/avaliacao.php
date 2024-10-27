@@ -30,7 +30,7 @@
             AND a.codturma = ?
             AND ast.subturma = ?
             ORDER BY a.data_inicio desc ";
-
+    
     $stmt = mysqli_prepare($conn, $sql);
 
     mysqli_stmt_bind_param($stmt, "iisss", $_SESSION['codcurso'], $_SESSION['periodo'], $_SESSION['semestre'], $_SESSION['codturma'], $_SESSION['subturma']);
