@@ -1,5 +1,5 @@
-<form id="form-problema" action="php/form/pergunta.php" method="post" class="todo-modal">
-    <div class="modal modal-slide-in sidebar-todo-modal fade" id="new-task-modal">
+<form id="form-problema" action="php/form/exame_fisico.php" method="post" class="todo-modal">
+    <div class="modal modal-slide-in sidebar-todo-modal fade" id="modal-exame-fisico">
         <div class="modal-dialog sidebar-lg">
             <div class="modal-content p-0">
                 <div class="modal-header align-items-center mb-1">
@@ -13,9 +13,11 @@
 
                         inputHidden('id_problema', @$id_problema);
 
-                        inputHidden('tipo', @$tipo);
+                        inputHidden('id_exame_fisico', @$id_exame_fisico);
+
+                        inputHidden('cod_tipo', @$cod_tipo);
                         
-                        inputHidden('status', '');
+                        inputHidden('cod_status', '');
 
                         inputHidden('top_position', '');
 
@@ -23,20 +25,9 @@
 
                         inputHidden('ordem', "");
 
-                        inputHidden('id_pergunta', '');
-
                         textarea("col-md-12 col-12", "Descrição", "descricao", "", "4");
 
-                        inputHidden('id_resposta', '');
-
                         textarea("col-md-12 col-12", "Resposta", "resposta", "", "4");
-                     
-                        if($_GET['p'] == 4)
-                        {
-                            inputForm("col-md-12 col-12", "Custo Exame", "valor", "", "", "valor", "");
-                        }
-
-                        //inputswitch("col-md-12 col-12 d-flex justify-content-between mb-1", "Gabarito", "gabarito", "1", "");
 
                         echo '<div id="file-preview" class="mt-1"></div>
                               <label for="file-input" class="btn p-1 mt-1 mb-1 w-100 btn-outline-primary">

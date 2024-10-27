@@ -180,7 +180,7 @@
                 {
                     extract($row);
 
-                    echo "<div class='marker' data-toggle='tooltip' title='$descricao' data-id='$id_pergunta' style='top: {$top_position}px; left: {$left_position}px;'></div>";
+                    echo "<div class='marker' data-toggle='tooltip' title='$descricao' data-id='$id_exame_fisico' style='top: {$top_position}px; left: {$left_position}px;'></div>";
                 }
             } 
         ?>
@@ -219,7 +219,7 @@
                             if(!empty($row)) 
                             {
                                 extract($row);
-                                echo "<div class='marker' data-toggle='tooltip' title='$descricao' data-id='$id_pergunta' style='top: {$top_position}px; left: {$left_position}px;'></div>";
+                                echo "<div class='marker' data-toggle='tooltip' title='$descricao' data-id='$id_exame_fisico' style='top: {$top_position}px; left: {$left_position}px;'></div>";
                             }
                         } 
                     ?>
@@ -232,6 +232,7 @@
     </div>
 
                 <?php
+
             }
             elseif($_GET['p'] == 3)
             { 
@@ -242,7 +243,7 @@
 
 $sql = "SELECT count(*) total
         FROM exame_laboratorial p
-        WHERE p.status IS NOT NULL
+        WHERE p.cod_tipo IS NOT NULL
         AND p.id_problema = ?";
 
 $stmt = mysqli_prepare($conn, $sql);
@@ -261,7 +262,7 @@ if($row['total'] <= 30)
   {
       $draggable = "draggable";
 ?>
-<button type="button" class="btn btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#new-task-modal">
+<button type="button" class="btn btn-outline-primary mt-2" data-bs-toggle="modal" data-bs-target="#modal-exame-laboratorial">
 Adicionar
 </button>
 <?php
@@ -274,12 +275,12 @@ Adicionar
     <div class="col-sm-12 mt-2">
         <div class="card">
             <div class="card-body p-0">
-                <ul class="list-group" id="basic-list-group">
+                <ul class="list-group" id="basic-list-group1">
                     <?php
 
                         $sql = "SELECT p.*
                                 FROM exame_laboratorial p
-                                WHERE p.status IS NOT NULL
+                                WHERE p.cod_tipo IS NOT NULL
                                 AND p.id_problema = ?";
 
                         $stmt = mysqli_prepare($conn, $sql);
@@ -305,17 +306,6 @@ Adicionar
                                     $descricao = "$descricao - <b>$valor</b>";
                                 }
 
-                                if($gabarito == 1)
-                                {
-                                    $gabarito = "<span class='text-center' data-bs-toggle='tooltip' data-bs-placement='top' title='Gabarito'>
-                                    <svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-check-circle text-success'><path d='M22 11.08V12a10 10 0 1 1-5.93-9.14'></path><polyline points='22 4 12 14.01 9 11.01'></polyline></svg>
-                                    </span>";
-                                }
-                                else
-                                {
-                                    $gabarito = "";
-                                }
-
                                 if(!empty($arquivo))
                                 {
                                     $arquivo = "<span class='text-center' data-bs-toggle='tooltip' data-bs-placement='top' title='Arquivo anexado'>
@@ -327,10 +317,10 @@ Adicionar
                                     $arquivo = "";
                                 }
 
-                                echo "<li class='list-group-item draggable' data-id='$id_pergunta'>
+                                echo "<li class='list-group-item draggable1' data-id='$id_exame_laboratorial'>
                                         <div class='row'>
                                             <div class='col-11 d-flex align-items-center'>
-                                                <button type='button' class='btn btn-icon btn-primary waves-effect waves-float waves-light me-2' data-id='$id_pergunta' onClick='editarPergunta($id_pergunta)'>
+                                                <button type='button' class='btn btn-icon btn-primary waves-effect waves-float waves-light me-2' data-id='$id_exame_laboratorial' onClick='editarExameLaboratorial($id_exame_laboratorial)'>
                                                     <svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-edit'>
                                                         <path d='M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7'></path>
                                                         <path d='M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z'></path>
@@ -344,7 +334,7 @@ Adicionar
                                             </div>";
                                 if (@$acessos[$namePage]['deletar'] == true) {
                                     echo "<div class='col-sm-1 d-flex justify-content-end align-items-center'>
-                                            <button type='button' class='btn btn-icon btn-danger waves-effect waves-float waves-light  deletar' data-id='$id_pergunta' data-title='Pergunta: $descricao' data-name='pergunta'>
+                                            <button type='button' class='btn btn-icon btn-danger waves-effect waves-float waves-light  deletar' data-id='$id_exame_laboratorial' data-title='Pergunta: $descricao' data-name='exame_laboratorial'>
                                                 <svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='currentColor' stroke-width='2' stroke-linecap='round' stroke-linejoin='round' class='feather feather-trash-2'>
                                                     <polyline points='3 6 5 6 21 6'></polyline>
                                                     <path d='M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2'></path>

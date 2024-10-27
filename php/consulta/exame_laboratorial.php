@@ -15,9 +15,9 @@
 
 		// Preparar a consulta SQL com um parâmetro
 		$sql = 'SELECT e.*
-                FROM exame_fisico e
+                FROM exame_laboratorial e
                 WHERE e.cod_status IS NOT NULL
-                AND e.id_exame_fisico  = ? ';
+                AND e.id_exame_laboratorial  = ? ';
 
 		// Preparar a declaração SQL
 		$stmt = $mysql->prepare($sql);

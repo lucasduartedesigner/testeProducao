@@ -80,6 +80,16 @@
                 }
 
 				include_once('edicao/problema.php');
+                
+                if($_GET['p'] == 2)
+                {
+                    include_once('modal/exame_fisico.php');
+                }
+                elseif($_GET['p'] == 3)
+                {
+                    include_once('modal/exame_laboratorial.php');
+                }
+                
 			}
 			else 
 			{
@@ -110,11 +120,11 @@
 
             $(document).on('click', '.marker', function() {
 
-                var id_pergunta = $(this).attr('data-id');
+                var id_exame_fisico = $(this).attr('data-id');
 
-                editarPergunta(id_pergunta);
+                editarExameFisico(id_exame_fisico);
 
-                $('#id_pergunta').val(id_pergunta);
+                $('#id_exame_fisico').val(id_exame_fisico);
 
             });
 
@@ -172,11 +182,28 @@
             }
 
             // Resetar o formulário ao fechar o modal
-            $('#new-task-modal').on('hidden.bs.modal', function () {
+            $('#modal-exame-fisico').on('hidden.bs.modal', function () {
+
                 $('#form-problema')[0].reset();
+
+                $('#id_exame_fisico').val('');
+
                 $('#removeMarker').hide();
+
+                $('#file-preview').html("");
+
                 currentMarker = null;
             });
+
+            $('#modal-exame-laboratorial').on('hidden.bs.modal', function () {
+                
+                $('#form-laboratorial')[0].reset();
+
+                $('#id_exame_laboratorial').val('');
+
+                $('#file-preview').html("");
+            });
+
         });
 
         var imageModalTriggered = false;
@@ -289,12 +316,12 @@
             }
         }
 
-        function editarPergunta(id) 
+        function editarExameFisico(id) 
         {
             $.ajax({
                 type: 'POST',
                 dataType: 'json',
-                url: 'php/consulta/pergunta.php',
+                url: 'php/consulta/exame_fisico.php',
                 async: true,
                 data: { id: id },
                 success: function(response) {
@@ -309,21 +336,44 @@
                         visualizarArquivo(response['dir']);
                     }
 
-                    if (response['gabarito'] == 1) 
+                    // Ajusta os títulos para edição
+                    $('.modal-title').html("Editar Exame Fisico");
+                    $('.btn-cadastrar').html("Alterar");
+
+                    // Abre o modal
+                    $('#modal-exame-fisico').modal('toggle');
+                }
+            });
+        }
+
+        function editarExameLaboratorial(id) 
+        {
+            $.ajax({
+                type: 'POST',
+                dataType: 'json',
+                url: 'php/consulta/exame_laboratorial.php',
+                async: true,
+                data: { id: id },
+                success: function(response) {
+
+                    // Preenche inputs com dados
+                    $.each(response, function(index, item) {
+                        $("#" + index).val(item);
+                    });
+
+                    if (response['dir']) 
                     {
-                        $("#gabarito").prop("checked", true)
+                        visualizarArquivo(response['dir']);
                     }
                     
                     $('#valor').val(money(response['valor']));
 
-                    $("#gabarito").val("1")
-
                     // Ajusta os títulos para edição
-                    $('.modal-title').html("Editar Pergunta");
+                    $('.modal-title').html("Editar Exame Laboratorial");
                     $('.btn-cadastrar').html("Alterar");
 
                     // Abre o modal
-                    $('#new-task-modal').modal('toggle');
+                    $('#modal-exame-laboratorial').modal('toggle');
                 }
             });
         }
