@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Tempo de geração: 26/10/2024 às 22:24
+-- Tempo de geração: 27/10/2024 às 03:38
 -- Versão do servidor: 8.2.0
 -- Versão do PHP: 8.2.13
 
@@ -45,7 +45,14 @@ CREATE TABLE IF NOT EXISTS `avaliacao` (
   `dt_updated` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `id_professor` int DEFAULT NULL,
   PRIMARY KEY (`id_avaliacao`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `avaliacao`
+--
+
+INSERT INTO `avaliacao` (`id_avaliacao`, `id_problema`, `codcurso`, `periodo`, `semestre`, `codturma`, `data_inicio`, `data_fim`, `descricao`, `status`, `user_created`, `dt_created`, `user_updated`, `dt_updated`, `id_professor`) VALUES
+(2, 1, 13, 5, '2024/2', 'MED05', '2024-10-26 03:00:00', '2024-10-27 03:00:00', NULL, 1, NULL, '2024-10-27 01:29:13', NULL, '2024-10-27 03:34:29', 1);
 
 -- --------------------------------------------------------
 
@@ -76,14 +83,17 @@ CREATE TABLE IF NOT EXISTS `avaliacao_problema` (
   `user_updated` int DEFAULT NULL,
   `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_avaliacao_problema`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `avaliacao_problema`
 --
 
 INSERT INTO `avaliacao_problema` (`id_avaliacao_problema`, `id_problema`, `id_avaliacao`, `id_pessoa`, `codcurso`, `periodo`, `semestre`, `codturma`, `subturma`, `diagnostico`, `qtd_perguntas`, `qtd_exames_fisico`, `qtd_exames_laboratorial`, `assertividade`, `tempo_avaliacao`, `cod_status`, `user_created`, `dt_created`, `user_updated`, `dt_updated`) VALUES
-(1, 2, 2, 1, 13, 7, '2024/2', 'MED01', 'GRUPO A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-26 22:03:50', NULL, '2024-10-26 22:03:50');
+(1, 2, 2, 1, 13, 7, '2024/2', 'MED01', 'GRUPO A', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2024-10-26 22:03:50', NULL, '2024-10-26 22:03:50'),
+(2, 3, 2, 583, 13, 5, '2024/2', 'MED05', 'GRUPO G', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2024-10-27 01:58:05', NULL, '2024-10-27 03:17:40'),
+(3, 3, 2, 583, 13, 5, '2024/2', 'MED05', 'GRUPO G', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2024-10-27 01:58:06', NULL, '2024-10-27 03:17:30'),
+(4, 3, 2, 583, 13, 5, '2024/2', 'MED05', 'GRUPO G', NULL, NULL, NULL, NULL, NULL, NULL, 1, NULL, '2024-10-27 01:58:25', NULL, '2024-10-27 03:17:00');
 
 -- --------------------------------------------------------
 
@@ -98,7 +108,17 @@ CREATE TABLE IF NOT EXISTS `avaliacao_subturma` (
   `subturma` varchar(20) NOT NULL,
   PRIMARY KEY (`id_avaliacao_subturma`),
   KEY `id_avaliacao` (`id_avaliacao`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=9 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `avaliacao_subturma`
+--
+
+INSERT INTO `avaliacao_subturma` (`id_avaliacao_subturma`, `id_avaliacao`, `subturma`) VALUES
+(1, 1, 'GRUPO G'),
+(7, 2, 'GRUPO G'),
+(6, 2, 'GRUPO F'),
+(8, 2, 'GRUPO H');
 
 -- --------------------------------------------------------
 
@@ -156,6 +176,44 @@ CREATE TABLE IF NOT EXISTS `config_exame_fisico` (
   `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_config_exame_fisico`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `estudante`
+--
+
+DROP TABLE IF EXISTS `estudante`;
+CREATE TABLE IF NOT EXISTS `estudante` (
+  `id_estudante` int NOT NULL AUTO_INCREMENT,
+  `nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `matricula` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cpf` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `senha` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `codcurso` int DEFAULT NULL,
+  `periodo` int DEFAULT NULL,
+  `semestre` varchar(6) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `codturma` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `subturma` varchar(20) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `user_created` int DEFAULT NULL,
+  `dt_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_updated` int DEFAULT NULL,
+  `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `estilo` int DEFAULT '1',
+  `reset` int DEFAULT NULL,
+  `foto` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id_estudante`)
+) ENGINE=MyISAM AUTO_INCREMENT=585 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `estudante`
+--
+
+INSERT INTO `estudante` (`id_estudante`, `nome`, `matricula`, `cpf`, `email`, `senha`, `status`, `codcurso`, `periodo`, `semestre`, `codturma`, `subturma`, `user_created`, `dt_created`, `user_updated`, `dt_updated`, `estilo`, `reset`, `foto`) VALUES
+(583, 'Rafael Sequeira', '06002151', '12312312311', 'rafael@unifeso.edu.br', '202cb962ac59075b964b07152d234b70', 1, 13, 5, '2024/2', 'MED05', 'GRUPO G', NULL, '2024-09-17 17:53:55', NULL, '2024-10-27 03:34:16', 1, NULL, NULL),
+(584, 'Hugo Verissimo', '06004445', '12312312312', 'hugo@gmail.com', 'e6db1baa29d3df1eb307ff6a12c778da', 1, 13, 5, '2024/2', 'MED05', 'GRUPO A', NULL, '2024-10-27 03:28:48', NULL, '2024-10-27 03:31:03', 1, 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -304,6 +362,77 @@ CREATE TABLE IF NOT EXISTS `log_acesso` (
 -- --------------------------------------------------------
 
 --
+-- Estrutura para tabela `log_acesso_estudante`
+--
+
+DROP TABLE IF EXISTS `log_acesso_estudante`;
+CREATE TABLE IF NOT EXISTS `log_acesso_estudante` (
+  `id_log_acesso_estudante` int NOT NULL AUTO_INCREMENT,
+  `id_estudante` int NOT NULL,
+  `navegador` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sistema` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dispositivo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ip_acesso` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dt_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_log_acesso_estudante`)
+) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `log_acesso_estudante`
+--
+
+INSERT INTO `log_acesso_estudante` (`id_log_acesso_estudante`, `id_estudante`, `navegador`, `sistema`, `dispositivo`, `ip_acesso`, `dt_created`) VALUES
+(1, 583, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:14:00'),
+(2, 583, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:15:00'),
+(3, 583, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:15:40'),
+(4, 583, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:16:08'),
+(5, 583, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:31:23'),
+(6, 583, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 02:42:50'),
+(7, 583, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 03:11:49'),
+(8, 583, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 03:17:50'),
+(9, 584, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 03:29:08'),
+(10, 584, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 03:29:19'),
+(11, 584, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 03:31:15'),
+(12, 584, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 03:31:27');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `log_acesso_professor`
+--
+
+DROP TABLE IF EXISTS `log_acesso_professor`;
+CREATE TABLE IF NOT EXISTS `log_acesso_professor` (
+  `id_log_acesso` int NOT NULL AUTO_INCREMENT,
+  `id_professor` int NOT NULL,
+  `navegador` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `sistema` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dispositivo` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `ip_acesso` varchar(45) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `dt_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_log_acesso`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `log_acesso_professor`
+--
+
+INSERT INTO `log_acesso_professor` (`id_log_acesso`, `id_professor`, `navegador`, `sistema`, `dispositivo`, `ip_acesso`, `dt_created`) VALUES
+(1, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:11:55'),
+(2, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:13:18'),
+(3, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:13:27'),
+(4, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:14:16'),
+(5, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:15:30'),
+(6, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 01:19:35'),
+(7, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 02:42:40'),
+(8, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 03:10:56'),
+(9, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 03:23:46'),
+(10, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 03:29:26'),
+(11, 1, 'Chrome', 'Windows 10', 'Desktop', '::1', '2024-10-27 03:31:51');
+
+-- --------------------------------------------------------
+
+--
 -- Estrutura para tabela `menu`
 --
 
@@ -357,7 +486,7 @@ CREATE TABLE IF NOT EXISTS `menu_acesso` (
   PRIMARY KEY (`id_menu_acesso`),
   KEY `fk_menu_acesso_nivel_acesso` (`id_nivel_acesso`),
   KEY `fk_menu_acesso_menu` (`id_menu`)
-) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=15 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `menu_acesso`
@@ -370,7 +499,14 @@ INSERT INTO `menu_acesso` (`id_menu_acesso`, `id_nivel_acesso`, `id_menu`, `leit
 (4, 1, 4, 1, 1, 1, NULL, '2024-10-26 19:23:58', NULL, '2024-10-26 19:23:58'),
 (5, 1, 5, 1, 1, 1, NULL, '2024-10-26 19:24:27', NULL, '2024-10-26 19:24:27'),
 (6, 1, 6, 1, 1, 1, NULL, '2024-10-26 19:24:27', NULL, '2024-10-26 19:24:27'),
-(7, 1, 7, 1, 1, 1, NULL, '2024-10-26 19:28:06', NULL, '2024-10-26 19:28:06');
+(7, 1, 7, 1, 1, 1, NULL, '2024-10-26 19:28:06', NULL, '2024-10-26 19:28:06'),
+(8, 2, 1, 1, 0, 0, NULL, '2024-10-27 00:58:27', NULL, '2024-10-27 00:58:43'),
+(9, 2, 2, 1, 1, NULL, NULL, '2024-10-27 00:58:38', NULL, '2024-10-27 00:58:45'),
+(10, 2, 3, 1, 1, NULL, NULL, '2024-10-27 00:58:39', NULL, '2024-10-27 00:58:46'),
+(11, 2, 6, 1, 1, NULL, NULL, '2024-10-27 00:58:40', NULL, '2024-10-27 00:58:48'),
+(12, 2, 7, 1, 1, NULL, NULL, '2024-10-27 00:58:40', NULL, '2024-10-27 00:58:49'),
+(13, 2, 5, 1, 0, NULL, NULL, '2024-10-27 00:58:41', NULL, '2024-10-27 03:25:24'),
+(14, 2, 4, 1, 0, NULL, NULL, '2024-10-27 00:58:42', NULL, '2024-10-27 03:25:24');
 
 -- --------------------------------------------------------
 
@@ -388,14 +524,15 @@ CREATE TABLE IF NOT EXISTS `nivel_acesso` (
   `user_updated` int DEFAULT NULL,
   `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_nivel_acesso`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `nivel_acesso`
 --
 
 INSERT INTO `nivel_acesso` (`id_nivel_acesso`, `nome`, `status`, `user_created`, `dt_created`, `user_updated`, `dt_updated`) VALUES
-(1, 'Administrador', 1, NULL, '2024-10-26 19:19:50', NULL, '2024-10-26 19:19:50');
+(1, 'Administrador', 1, NULL, '2024-10-26 19:19:50', NULL, '2024-10-26 19:19:50'),
+(2, 'Professor', 1, NULL, '2024-10-27 00:58:22', NULL, '2024-10-27 00:58:22');
 
 -- --------------------------------------------------------
 
@@ -469,8 +606,8 @@ CREATE TABLE IF NOT EXISTS `pessoa` (
 --
 
 INSERT INTO `pessoa` (`id_pessoa`, `id_nivel_acesso`, `nome`, `matricula`, `cpf`, `email`, `senha`, `cod_status`, `cod_tipo`, `estilo`, `reset`, `user_created`, `dt_created`, `user_updated`, `dt_updated`) VALUES
-(1, 1, 'Lucas', '073842', '14126735771', 'lucasduarte@feso.edu.br', '202cb962ac59075b964b07152d234b70', NULL, NULL, 1, NULL, NULL, '2024-10-26 17:58:23', NULL, '2024-10-26 19:20:02'),
-(2, 1, 'Brucin', '068755', '11122233344', 'brucin@gmail.com', '202cb962ac59075b964b07152d234b70', NULL, NULL, 1, NULL, NULL, '2024-10-26 18:07:31', NULL, '2024-10-26 19:20:05');
+(1, 1, 'Lucas', '073842', '14126735771', 'lucasduarte@feso.edu.br', '202cb962ac59075b964b07152d234b70', 1, 1, 2, NULL, NULL, '2024-10-26 17:58:23', NULL, '2024-10-27 00:48:31'),
+(2, 1, 'Brucin', '068755', '11122233344', 'brucin@gmail.com', '202cb962ac59075b964b07152d234b70', 1, 1, 1, NULL, NULL, '2024-10-26 18:07:31', NULL, '2024-10-26 22:33:40');
 
 -- --------------------------------------------------------
 
@@ -496,15 +633,50 @@ CREATE TABLE IF NOT EXISTS `problema` (
   `user_updated` int DEFAULT NULL,
   `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_problema`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
 -- Despejando dados para a tabela `problema`
 --
 
 INSERT INTO `problema` (`id_problema`, `nome`, `disparador`, `identificacao`, `desc_hda`, `desc_hpp`, `desc_hs`, `desc_hpf`, `arquivo`, `diagnostico`, `cod_status`, `user_created`, `dt_created`, `user_updated`, `dt_updated`) VALUES
-(1, 'COD1 - Hipertireoidismo', 'Vocês são um grupo de acadêmicos que estão participando do ambulatório de Atenção Primária e acompanham a consulta de Ricardo, uma criança de 9 anos 5 meses que vem acompanhado da Mãe, com queixa atraso no crescimento, notado “há muito tempo tempo”', 'Sexo masculino, pardo, estudante do ensino fundamental, 9 anos e 5 meses, residente em Belford Roxo, pais evangélicos. Nascimento a termo, pelas vias naturais, sem complicações. \r\nA mãe refere ter realizado acompanhamento pré-natal, tendo utilizado sulfato ferroso e ácido fólico como únicos medicamentos durante a gestação. Aleitamento materno até os 2 anos\r\n', 'Mãe queixa de atraso no crescimento, e alterações dos índices antropométricos, conforme observou na caderneta da criança, o que a fez procurar auxilio na unidade de saúde. A mãe não sabe precisar há quanto notou o retardo no desenvolvimento, mas já havia notado a baixa estatura há aproximadamente um ano. A mãe alega estar preocupada, pois o menino repetiu de ano. Ela diz que teve uma reunião com a professora na qual ela indicou dificuldade na alfabetização do filho.  No contexto da revisão de sistemas, a mãe refere que o filho está com dificuldade de enxergar e apresenta prurido ocular, que não melhora com uso de colírios lubrificantes. A mãe nota que o filho vem apresentando ganho de peso no último ano, apesar da baixa estatura. \r\nIMC: 29,9 kg/m² (acima percentil 97) Peso: 34,9 kg (entre os percentis 50 e 85); Altura: 108 cm (abaixo percentil 3). \r\n', 'Nega doenças crônicas ou uso de medicamentos. nenhum medicamento regular. Nega cirurgias ou internações prévias. Nega cirurgias ou internações prévias. Catapora aos 7 anos. Mãe alega estar com calendário vacinal atualizado. A mãe refere que o Ricardo é seu filho caçula, e ja vem notando a baixa estatura há anosG5P5A0.', 'Alimentação balanceada com todos os grupos alimentares (proteínas, frutas e verduras), mesmo com aumento recente de peso. Mae refere consumo de sal iodado regular e de peixes ocasionalmente. Nega polifagia e consumo de produtos industrializados. A mãe nega tabagismo, etilismo ou uso de drogas ilícitas. Frequenta a escola fundamental, onde realiza educação física como parte da atividade didática. Vive com os pais, e irmãos em casa de alvenaria, com saneamento. ', 'Avó materna com DM tipo 2 e HAS, avô materno falecido de causas desconhecidas. Não sabe informar sobre status de saúde da família do esposo. Mãe  65 Kg  165 cm, pai 84 Kg e 183 cm', NULL, 'Hipertireoidismo', 1, NULL, '2024-10-26 20:39:17', NULL, '2024-10-26 20:45:27'),
-(2, 'COD2 - Hipertensão', NULL, 'Sr. João, 52 anos, engenheiro civil, residente de Belo Horizonte, MG.', 'Paciente relata que nos últimos seis meses sentiu episódios recorrentes de dor de cabeça, principalmente na região occipital, associada a tonturas e zumbido nos ouvidos. Ao aferir a pressão arterial em uma farmácia local, notou que estava acima do normal, com valores em torno de 150/100 mmHg. Os sintomas se intensificam no período da manhã e após esforço físico ou situações de stress, mas não apresenta alívio mesmo em repouso. Não relata qualquer episódio de perda de consciência, alterações visuais ou dor torácica.', 'Paciente é sedentário e possui histórico de tabagismo, fumando cerca de 20 cigarros por dia há 30 anos. Relata consumo moderado de álcool, principalmente nos finais de semana. Não tem histórico de diabetes, doenças cardíacas ou renais. Faz uso esporádico de analgésicos para aliviar as dores de cabeça.', 'Dieta rica em sal e gorduras, pouca atividade física e alto nível de stress devido ao trabalho. Dorme em média 5 horas por noite durante a semana.', 'Pai falecido aos 60 anos por infarto agudo do miocárdio. Mãe viva, 78 anos, hipertensa e diabética. Dois irmãos, um com histórico de hipertensão e outro saudável. Este caso clínico destaca a importância da anamnese na identificação de fatores de risco e sinais sugestivos de hipertensão arterial, uma condição comum, mas muitas vezes negligenciada, que pode levar a complicações graves quando não tratada adequadamente.', NULL, 'Hipertensão', 1, NULL, '2024-10-26 23:19:42', NULL, '2024-10-26 20:45:42');
+(2, 'Teste Anamnese I.A', NULL, 'Sr. João, 52 anos, engenheiro civil, residente de Belo Horizonte, MG.', 'Paciente relata que nos últimos seis meses sentiu episódios recorrentes de dor de cabeça, principalmente na região occipital, associada a tonturas e zumbido nos ouvidos. Ao aferir a pressão arterial em uma farmácia local, notou que estava acima do normal, com valores em torno de 150/100 mmHg. Os sintomas se intensificam no período da manhã e após esforço físico ou situações de stress, mas não apresenta alívio mesmo em repouso. Não relata qualquer episódio de perda de consciência, alterações visuais ou dor torácica.', 'Paciente é sedentário e possui histórico de tabagismo, fumando cerca de 20 cigarros por dia há 30 anos. Relata consumo moderado de álcool, principalmente nos finais de semana. Não tem histórico de diabetes, doenças cardíacas ou renais. Faz uso esporádico de analgésicos para aliviar as dores de cabeça.', 'Dieta rica em sal e gorduras, pouca atividade física e alto nível de stress devido ao trabalho. Dorme em média 5 horas por noite durante a semana.', 'Pai falecido aos 60 anos por infarto agudo do miocárdio. Mãe viva, 78 anos, hipertensa e diabética. Dois irmãos, um com histórico de hipertensão e outro saudável. Este caso clínico destaca a importância da anamnese na identificação de fatores de risco e sinais sugestivos de hipertensão arterial, uma condição comum, mas muitas vezes negligenciada, que pode levar a complicações graves quando não tratada adequadamente.', NULL, 'Hipertensão', 1, NULL, '2024-10-26 23:19:42', NULL, '2024-10-27 01:24:46'),
+(1, 'Hipertireoidismo', 'Vocês são um grupo de acadêmicos que estão participando do ambulatório de Atenção Primária e acompanham a consulta de Ricardo, uma criança de 9 anos 5 meses que vem acompanhado da Mãe, com queixa atraso no crescimento, notado “há muito tempo tempo”', 'Sexo masculino, pardo, estudante do ensino fundamental, 9 anos e 5 meses, residente em Belford Roxo, pais evangélicos. Nascimento a termo, pelas vias naturais, sem complicações. \r\nA mãe refere ter realizado acompanhamento pré-natal, tendo utilizado sulfato ferroso e ácido fólico como únicos medicamentos durante a gestação. Aleitamento materno até os 2 anos\r\n', 'Mãe queixa de atraso no crescimento, e alterações dos índices antropométricos, conforme observou na caderneta da criança, o que a fez procurar auxilio na unidade de saúde. A mãe não sabe precisar há quanto notou o retardo no desenvolvimento, mas já havia notado a baixa estatura há aproximadamente um ano. A mãe alega estar preocupada, pois o menino repetiu de ano. Ela diz que teve uma reunião com a professora na qual ela indicou dificuldade na alfabetização do filho.  No contexto da revisão de sistemas, a mãe refere que o filho está com dificuldade de enxergar e apresenta prurido ocular, que não melhora com uso de colírios lubrificantes. A mãe nota que o filho vem apresentando ganho de peso no último ano, apesar da baixa estatura. \r\nIMC: 29,9 kg/m² (acima percentil 97) Peso: 34,9 kg (entre os percentis 50 e 85); Altura: 108 cm (abaixo percentil 3). \r\n', 'Nega doenças crônicas ou uso de medicamentos. nenhum medicamento regular. Nega cirurgias ou internações prévias. Nega cirurgias ou internações prévias. Catapora aos 7 anos. Mãe alega estar com calendário vacinal atualizado. A mãe refere que o Ricardo é seu filho caçula, e ja vem notando a baixa estatura há anosG5P5A0.', 'Alimentação balanceada com todos os grupos alimentares (proteínas, frutas e verduras), mesmo com aumento recente de peso. Mae refere consumo de sal iodado regular e de peixes ocasionalmente. Nega polifagia e consumo de produtos industrializados. A mãe nega tabagismo, etilismo ou uso de drogas ilícitas. Frequenta a escola fundamental, onde realiza educação física como parte da atividade didática. Vive com os pais, e irmãos em casa de alvenaria, com saneamento. ', 'Avó materna com DM tipo 2 e HAS, avô materno falecido de causas desconhecidas. Não sabe informar sobre status de saúde da família do esposo. Mãe  65 Kg  165 cm, pai 84 Kg e 183 cm', NULL, 'Hipertireoidismo', 1, NULL, '2024-10-26 20:39:17', NULL, '2024-10-27 01:25:15'),
+(3, 'teste i.a - diabete', 'testando essa porra', 'Paciente J.S., 52 anos, pedreiro, residente de São Paulo.', 'Paciente relata que há aproximadamente 3 meses vem se sentindo bastante cansado, com fraqueza generalizada e perda de peso de cerca de 10 kg no período. Relata também aumento da sede e da frequência urinária, especialmente à noite. Menciona que as feridas estão demorando mais a cicatrizar do que o habitual, citando um corte na mão que ocorreu há duas semanas e ainda está em processo de cicatrização.', 'Paciente já foi diagnosticado com hipertensão há 5 anos, tratada com uso contínuo de Losartana 50mg. Informa que não possui alergias conhecidas.', 'Paciente é fumante, consome cerca de 1 maço de cigarros por dia há 30 anos. Bebe cerveja socialmente nos finais de semana. Relata uma alimentação desbalanceada, rica em carboidratos e gorduras, com pouca ingestão de frutas e vegetais. Não realiza atividades físicas regularmente.', 'Pai falecido em decorrência de infarto agudo do miocárdio aos 60 anos e mãe viva, diagnosticada com diabetes tipo 2 aos 50 anos. Tem um irmão, 45 anos, saudável. A anamnese exposta acima fornece informações relevantes para o entendimento do diagnóstico de diabetes, ponderando fatores como sintomas, histórico de saúde pessoal e familiar, além de hábitos de vida do paciente.', NULL, 'Diabetes', 1, NULL, '2024-10-27 03:08:25', NULL, '2024-10-27 03:18:38');
+
+-- --------------------------------------------------------
+
+--
+-- Estrutura para tabela `professor`
+--
+
+DROP TABLE IF EXISTS `professor`;
+CREATE TABLE IF NOT EXISTS `professor` (
+  `id_professor` int NOT NULL AUTO_INCREMENT,
+  `id_nivel_acesso` int NOT NULL,
+  `nome` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `matricula` varchar(10) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `cpf` varchar(14) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `email` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `senha` varchar(150) CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `status` int DEFAULT NULL,
+  `user_created` int DEFAULT NULL,
+  `dt_created` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `user_updated` int DEFAULT NULL,
+  `dt_updated` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `estilo` int DEFAULT '1',
+  `reset` int DEFAULT NULL,
+  PRIMARY KEY (`id_professor`),
+  KEY `fk_professor_nivel_acesso` (`id_nivel_acesso`)
+) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+--
+-- Despejando dados para a tabela `professor`
+--
+
+INSERT INTO `professor` (`id_professor`, `id_nivel_acesso`, `nome`, `matricula`, `cpf`, `email`, `senha`, `status`, `user_created`, `dt_created`, `user_updated`, `dt_updated`, `estilo`, `reset`) VALUES
+(1, 1, 'Lucas Duarte', '073842', '14126735771', 'lucas.duarte.designer@gmail.com', 'cddedd99cbe88a173cd2efd609de84c9', 1, 1, '2024-07-10 05:28:13', NULL, '2024-10-27 03:32:47', 2, 1),
+(2, 1, 'Rafael Sequeira', '068755', '12312312311', 'rafaelsequeira@feso.edu.br', '2255be0951400e260832c85c5d191247', 1, NULL, '2024-10-27 03:34:03', NULL, '2024-10-27 03:34:03', 1, 1);
 
 -- --------------------------------------------------------
 
