@@ -3,7 +3,7 @@
 class Database
 {
     private $host = "localhost";
-    private $db   = "appcasoclinico";
+    private $db   = "testeproducao";
     private $user;
     private $pass;
 
@@ -18,16 +18,16 @@ class Database
 		{
             if($_SERVER['HTTP_HOST'] == "localhost")
             {
-                $this->db   = "appcasoclinico";
+                $this->db   = "testeproducao";
                 $this->user = "root";
                 $this->pass = "";
             }
             else
             {
-                $this->host = "192.185.176.160";
-                $this->db   = "appcas29_casoclinico";
-                $this->user = "appcas29_casoclinico";
-                $this->pass = "$2UzP)juxntu";
+                $this->host = "35.198.60.98";
+                $this->db   = "db-testeproducao";
+                $this->user = "user-testeproducao";
+                $this->pass = "Testeprod@123";
             }
 
 			$this->mysqli = new mysqli($this->host, $this->user, $this->pass, $this->db);

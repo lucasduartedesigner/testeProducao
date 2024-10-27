@@ -52,6 +52,9 @@
 
 <link rel="stylesheet" href="<?= $raiz ?>app-assets/css/pages/app-calendar.css">
 
+<link rel="stylesheet" href="<?= $raiz ?>app-assets/css/pages/app-chat.css">
+<link rel="stylesheet" href="<?= $raiz ?>app-assets/css/pages/app-chat-list.css">
+
 <link rel="stylesheet" href="<?= $raiz ?>assets/css/style.css">
 <style>
 

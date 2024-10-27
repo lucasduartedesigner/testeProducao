@@ -13,16 +13,18 @@
 										<th>Matrícula</th>
 										<th>CPF</th>
 										<th>Email</th>
+										<th>Nivel Acesso</th>
 										<th width="1"></th>
 									</tr>
 								</thead>
 								<tbody>
 									<?php
 
-										$sql = "SELECT * FROM pessoa
-												WHERE cod_status IN (1, 2) 
-												AND cod_tipo = 1
-												ORDER BY nome";
+										$sql = "SELECT p.*, na.nome nivel_acesso
+                                                FROM professor p
+                                                INNER JOIN nivel_acesso na ON na.id_nivel_acesso = p.id_nivel_acesso
+												WHERE p.status IN (1, 2) 
+												ORDER BY p.nome";
 
 										$stmt = mysqli_prepare($conn, $sql);
 
@@ -37,7 +39,7 @@
 												extract($row);
 											}
 
-											$href = "$path?url=$url&user=$id_pessoa";
+											$href = "$path?url=$url&user=$id_professor";
 
 											echo '<tr>';
 												echo '<td>';
@@ -56,8 +58,11 @@
 													echo $email;
 												echo '</td>';
 												echo '<td>';
+													echo $nivel_acesso;
+												echo '</td>';
+												echo '<td>';
 												  if( @$acessos[$namePage]['deletar'] == true ) {
-													  btnDelete($id_pessoa, "Professor: $nome", "pessoa");
+													  btnDelete($id_professor, "Professor: $nome", "professor");
 												  }
 												echo '</td>';
 											echo '</tr>';

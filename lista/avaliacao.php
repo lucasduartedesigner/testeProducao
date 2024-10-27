@@ -65,7 +65,7 @@
 													echo dataBR($data_inicio);
 												echo '</td class="text-center">';
 												echo '<td>';
-													echo dataBR($data_fimo);
+													echo dataBR($data_fim);
 												echo '</td>';
 												echo '<td>';
 													echo statusCaso($status);

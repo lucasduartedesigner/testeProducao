@@ -22,9 +22,8 @@
 								<tbody>
 									<?php
 
-										$sql = "SELECT * FROM pessoa
-												WHERE cod_status IN (1, 2) 
-												AND cod_tipo = 2
+										$sql = "SELECT * FROM estudante
+												WHERE status IN (1, 2) 
 												ORDER BY nome";
 
 										$stmt = mysqli_prepare($conn, $sql);

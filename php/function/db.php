@@ -418,9 +418,9 @@
             case 1:
                 return "Agendado";
             case 2:
-                return "Em andamento";
+                return "Em avaliação";
             case 3:
-                return "Concluído";
+                return "Finalizado";
             case 4:
                 return "Cancelado";
             default:

@@ -3,6 +3,10 @@
 	//Inicia sessão
     session_start();
 
+	ini_set('display_errors', 1);
+	ini_set('display_startup_errors', 1);
+	error_reporting(E_ALL);
+
 	if(empty($raiz)) { $raiz = ""; }
 
 	//Incluindo a conexão com banco de dados   
@@ -10,7 +14,6 @@
 
 	$id_config = 1;
 
-    //Consulta as configurações do sistema
 	$sql = "SELECT name, site, description, logo, icone
             FROM config WHERE id_config = ? ";
 
@@ -85,10 +88,10 @@
                             <div class="col-12 col-sm-8 col-md-6 col-lg-12 px-xl-2 mx-auto">
                                 <h3 class="card-title fw-bold mb-1">Bem-vindo ao <?= $name ?>! 👋</h3>
                                 <p class="card-text mb-2">Sua plataforma de <?= $description ?></p>
-                                <form class="mt-2" action="php/login.php" method="POST">
+                                <form class="mt-2" action="php/form/login.php" method="POST">
                                     <div class="mb-2">
-                                        <label class="form-label" for="matricula">Usuário</label>
-                                        <input class="form-control" id="matricula" type="text" name="matricula" autofocus="" tabindex="1" required />
+                                        <label class="form-label" for="usuario">Usuário</label>
+                                        <input class="form-control" id="usuario" type="text" name="usuario" autofocus="" tabindex="1" required />
                                     </div>
                                     <div class="mb-2">
                                         <div class="d-flex justify-content-between">
@@ -113,14 +116,14 @@
                                     <button type="submit" class="btn btn-primary w-100" tabindex="4">Entrar</button>
                                 </form>
 
-								<?php if(isset($_SESSION['msg'])){ ?>
+								<?php if(isset($_SESSION['loginErro'])){ ?>
 									<div class="alert alert-danger mt-2" role="alert">
 										<div class="alert-body d-flex align-items-center">
 											<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-info me-50"><circle cx="12" cy="12" r="10"></circle><line x1="12" y1="16" x2="12" y2="12"></line><line x1="12" y1="8" x2="12.01" y2="8"></line></svg>
-											<span><?php echo $_SESSION['msg']; ?></span>
+											<span><?php echo $_SESSION['loginErro']; ?></span>
 										</div>
 									</div>
- 								<?php unset($_SESSION['msg']); } ?>
+ 								<?php unset($_SESSION['loginErro']); } ?>
 
                             </div>
                         </div>

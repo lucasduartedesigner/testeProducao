@@ -31,6 +31,8 @@
 <script src="<?= $raiz ?>app-assets/js/core/app-menu.js"></script>
 <script src="<?= $raiz ?>app-assets/js/core/app.js"></script>
 
+<script src="<?= $raiz ?>app-assets/js/scripts/pages/app-chat.js"></script>
+
 <script src="<?= $raiz ?>assets/bootbox/bootbox.min.js"></script>
 
 <script src="<?= $raiz ?>assets/js/jquery.mask.min.js"></script>
