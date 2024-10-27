@@ -53,19 +53,12 @@
 ?>
 
 <div class="card mt-2">
-    <h4 class='card-header'><?php echo ($_GET['p'] == 1) ? 'Perguntas realizadas' : 'Exames realizados'; ?> </h4>
-    <div class="card-body card-body-content" id="card-body-content"  style="min-height:420px !important">
+    <h4 class='card-header'>Chat de Anamnese</h4>
+    <div class="card-body card-body-content" id="chatgpt-response" style="min-height:420px !important">
         <?php foreach ($data as $item): ?>
         <?php
 
             $resposta = (empty($item['resposta']) && empty($item['id_pergunta']) && empty($item['arquivo'])) ? 'Aguardando Resposta...' : $item['resposta'];
-
-            if($tipo == 3 && (!empty($item['valor']) || !empty($item['valornovo'])))
-            {
-                $valor =  (!empty($item['valor'])) ? moeda($item['valor']) : moeda($item['valornovo']);
-
-                $item['pergunta'] = "{$item['pergunta']} - {$valor}";
-            }
 
         ?>
             <h2 class="text-secondary"><?= @$item['pergunta'] ?></h2>
@@ -106,7 +99,7 @@
         <div class="card-body card-body-content" id="card-body-content"  style="min-height:70px !important">
         <?php if( $id_estudante == $_SESSION['id_estudante'] && $status_estudante == $_GET['p'] ) { ?>
 
-        <form id="form-problema-estudante" action="../py/" method="post" class="todo-modal row chat-app-form">
+        <div id="form-problema-estudante" class="todo-modal row chat-app-form">
             
             <?php
 
@@ -118,14 +111,16 @@
 
                 textarea("col-md-10 col-10", "Descrição", "pergunta", "", "1");
 
+                //inputForm("col-md-10 col-10", "Descrição", "pergunta", "", "required autocomplete='off'", "", "");
+
             ?>
             <div class="col-md-2 col-2 text-center">
-                <button type="button" class="btn btn-primary" style="margin-top:25px">
+                <button type="button" class="btn btn-primary" id="btn-pergunta" style="margin-top:25px">
                 <i data-feather='send'></i>
                 </button>
             </div>
                         
-        </form>
+        </div>
         <?php } ?>
 
     </div>

@@ -172,37 +172,3 @@ def save_assertiveness_evaluation_in_db(id_avaliacao, id_problema, assertividade
     finally:
         cursor.close()
         conn.close()
-
-def get_exames():
-    conn = create_connection()
-    if conn is None:
-        return "Erro ao conectar ao banco de dados."
-
-    try:
-        cursor = conn.cursor()
-        
-        # Consulta para obter o pré-prompt
-        pre_prompt_query = "SELECT prompt_text FROM prompts WHERE prompt_type = 'laboratorial'"
-        cursor.execute(pre_prompt_query)
-        pre_prompt_result = cursor.fetchone()
-        anamnese_prompt = pre_prompt_result[0] if pre_prompt_result else "Pré-prompt laboratorial não encontrado."
-
-        prompt_exame = "select descricao from exame_laboratorial"
-        cursor.execute(prompt_exame)
-        prompt_exame_result = cursor.fetchone()
-        exame_prompt = prompt_exame_result[0] if pre_prompt_result else "Prompt laboratorial não encontrado."
-
-        # Concatena o pré-prompt com o prompt específico do problema
-        full_prompt = f"{anamnese_prompt}\n\n{exame_prompt}"
-    
-    except Exception as e:
-        full_prompt = f"Erro ao buscar o prompt do banco de dados: {e}"
-    
-    finally:
-        cursor.close()
-        conn.close()
-    print(full_prompt)
-    return full_prompt
-
-get_exames()
-

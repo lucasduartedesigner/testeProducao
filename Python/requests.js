@@ -28,8 +28,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Função para enviar a pergunta ao back-end
     function sendQuestion(userQuestion) {
-        const idProblema = 3;           // ID simulado para id_problema
-        const idAvaliacaoProblema = 3;  // ID simulado para id_avaliacao_problema
+        const idProblema =  document.getElementById("id_problema").value; // ID simulado para id_problema
+        const idAvaliacaoProblema = document.getElementById("id_avaliacao_problema").value;  // ID simulado para id_avaliacao_problema
+
+        console.log(idProblema)
+        console.log(idAvaliacaoProblema)
 
         const data = {
             id_problema: idProblema,
@@ -67,7 +70,8 @@ document.addEventListener("DOMContentLoaded", function() {
     }
 
     // Evento para enviar a pergunta ao pressionar Enter
-    const userQuestionInput = document.getElementById("user-question");
+    const userQuestionInput = document.getElementById("pergunta");
+    //onst btnQuestionInput = document.getElementById("btn-pergunta");
     if (userQuestionInput) {
         userQuestionInput.addEventListener("keypress", function(event) {
             if (event.key === "Enter") {
